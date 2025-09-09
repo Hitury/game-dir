@@ -17,7 +17,7 @@ export default function IndexPage() {
           <span className={title({ color: "violet" })}>Anorix&nbsp;</span>
           <br />
           {/* <span className={title()}>
-            Title
+            websites regardless of your design experience.
           </span> */}
           <div className={subtitle({ class: "mt-4" })}>
             Beautiful, fast and modern React UI library.
