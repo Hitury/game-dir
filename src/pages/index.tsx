@@ -46,8 +46,8 @@ export default function IndexPage() {
             Explore
           </Link>
         </div>
-        <Carousel />
       </section>
+      <Carousel/>
     </DefaultLayout>
     
   );

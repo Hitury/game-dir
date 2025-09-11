@@ -1,6 +1,6 @@
 import { useRef } from "react";
 
-const items = [
+const items = [ // Praise the Sun!
   { id: 1, title: "Placeholder", image: "public/praisethesun.jpg" },
   { id: 2, title: "Placeholder", image: "public/praisethesun.jpg" },
   { id: 3, title: "Placeholder", image: "public/praisethesun.jpg" },
@@ -47,7 +47,7 @@ export default function SnappingCarousel() {
   // The onScroll handler has been removed as it's no longer necessary.
 
   return (
-    <div className="relative w-full max-w-5xl mx-auto">
+    <div className="relative w-full max-w-5xl mx-auto mt-[30rem]">
       {/* Left Arrow */}
       <button
         onClick={() => scroll("left")}
