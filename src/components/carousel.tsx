@@ -51,11 +51,11 @@ export default function SnappingCarousel() {
       {/* Left Arrow */}
       <button
         onClick={() => scroll("left")}
-        className="absolute top-1/2 left-2 -translate-y-1/2 z-10 bg-white/70 p-2 rounded-full shadow-lg hover:bg-white focus:outline-none"
+        className="absolute top-1/2 left-2 -translate-y-1/2 z-10 bg-[#DB924B] p-2 rounded-full shadow-lg hover:bg-[#DB924B] focus:outline-none"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="w-6 h-6 text-gray-800"
+          className="w-6 h-6 text-[#000000]"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -73,7 +73,7 @@ export default function SnappingCarousel() {
         {items.map((item) => (
           <div
             key={item.id}
-            className="min-w-[300px] flex-shrink-0 rounded-xl overflow-hidden shadow-lg bg-white"
+            className="min-w-[150px] flex-shrink-0 rounded-xl overflow-hidden shadow-lg bg-[#00000050]"
           >
             <img src={item.image} alt={item.title} className="w-full h-48 object-cover" />
             <div className="p-4 text-center font-semibold text-lg">{item.title}</div>
@@ -84,11 +84,11 @@ export default function SnappingCarousel() {
       {/* Right Arrow */}
       <button
         onClick={() => scroll("right")}
-        className="absolute top-1/2 right-2 -translate-y-1/2 z-10 bg-white/70 p-2 rounded-full shadow-lg hover:bg-white focus:outline-none"
+        className="absolute top-1/2 right-2 -translate-y-1/2 z-10 bg-[#DB924B] p-2 rounded-full shadow-lg hover:bg-[#DB924B]"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="w-6 h-6 text-gray-800"
+          className="w-6 h-6 text-[#000000]"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
