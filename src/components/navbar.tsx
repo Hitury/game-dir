@@ -56,8 +56,7 @@ export const Navbar = () => {
             color="foreground"
             href="/"
           >
-            <Logo />
-            <p className="font-bold text-inherit">ACME</p>
+            <p className="font-bold text-inherit">CINDERWATCH</p>
           </Link>
         </NavbarBrand>
         <div className="hidden lg:flex gap-4 justify-start ml-2">
@@ -104,7 +103,16 @@ export const Navbar = () => {
             startContent={<HeartFilledIcon className="text-danger" />}
             variant="flat"
           >
-            Sponsor
+            Support us!
+          </Button>
+          <Button
+            isExternal
+            as={Link}
+            className="text-sm font-normal ml-2 text-black bg-[#DB924B]"
+            href={siteConfig.links.sponsor}
+            variant="flat"
+          >
+            Login
           </Button>
         </NavbarItem>
       </NavbarContent>
