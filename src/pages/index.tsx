@@ -1,5 +1,6 @@
 import { Link } from "@heroui/link";
 import { button as buttonStyles } from "@heroui/theme";
+import { Divider } from "@heroui/divider";
 
 import { siteConfig } from "@/config/site";
 import { title, subtitle } from "@/components/primitives";
@@ -22,10 +23,14 @@ export default function IndexPage() {
             The Game Library for discovering, organizing, and sharing your favorite games.
           </div>
         </div>
-
-        <div className="absolute flex justify-center z-[-1] opacity-40">
+        
+        <div className="flex justify-center flex-col absolute">
+          <div className="flex justify-center z-[-1] opacity-40 mb-[-16px]">
             <img src="public/sunbros.jpg" className=""></img>
+            
           </div>
+          <Divider className="my-4 bg-[#DB924B] h-0.5"/>
+        </div>
 
         <div className="flex gap-3">
           <Link
