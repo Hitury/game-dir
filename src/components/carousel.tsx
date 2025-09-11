@@ -1,70 +1,66 @@
-import { useState } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useRef } from "react";
 
-const images = [
-  "https://picsum.photos/id/1015/800/400",
-  "https://picsum.photos/id/1016/800/400",
-  "https://picsum.photos/id/1018/800/400",
+const items = [
+  { id: 1, title: "Card 1", image: "https://picsum.photos/id/1015/400/250" },
+  { id: 2, title: "Card 2", image: "https://picsum.photos/id/1016/400/250" },
+  { id: 3, title: "Card 3", image: "https://picsum.photos/id/1018/400/250" },
+  { id: 4, title: "Card 4", image: "https://picsum.photos/id/1020/400/250" },
+  { id: 5, title: "Card 5", image: "https://picsum.photos/id/1021/400/250" },
+  { id: 6, title: "Card 6", image: "https://picsum.photos/id/1022/400/250" },
 ];
 
-function Carousel() {
-  const [current, setCurrent] = useState(0);
+export default function NetflixCarousel() {
+  // 👇 Type ref correctly as HTMLDivElement
+  const scrollRef = useRef<HTMLDivElement | null>(null);
 
-  const prevSlide = () => {
-    setCurrent((prev) => (prev === 0 ? images.length - 1 : prev - 1));
-  };
-
-  const nextSlide = () => {
-    setCurrent((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+  // 👇 Explicit type for direction
+  const scroll = (direction: "left" | "right") => {
+    if (scrollRef.current) {
+      const { clientWidth } = scrollRef.current;
+      scrollRef.current.scrollBy({
+        left: direction === "left" ? -clientWidth : clientWidth,
+        behavior: "smooth",
+      });
+    }
   };
 
   return (
-    <div className="relative w-full max-w-2xl mx-auto overflow-hidden rounded-2xl shadow-lg">
-      {/* Slides wrapper */}
-      <div
-        className="flex transition-transform duration-500"
-        style={{ transform: `translateX(-${current * 100}%)` }}
-      >
-        {images.map((src, i) => (
-          <img
-            key={i}
-            src={src}
-            alt={`Slide ${i}`}
-            className="w-full flex-shrink-0 object-cover h-64"
-          />
-        ))}
-      </div>
-
+    <div className="relative w-full max-w-5xl mx-auto">
       {/* Left Arrow */}
       <button
-        onClick={prevSlide}
-        className="absolute top-1/2 left-2 -translate-y-1/2 bg-white/70 rounded-full p-2 hover:bg-white"
+        onClick={() => scroll("left")}
+        className="absolute top-1/2 left-2 -translate-y-1/2 z-10 bg-white/70 p-2 rounded-full shadow hover:bg-white"
       >
-        <ChevronLeft className="w-6 h-6 text-gray-800" />
+        <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+        </svg>
       </button>
+
+      {/* Carousel Container */}
+      <div
+        ref={scrollRef}
+        className="flex overflow-x-auto no-scrollbar scroll-smooth space-x-4 px-10"
+      >
+        {items.map((item) => (
+          <div
+            key={item.id}
+            className="min-w-[250px] flex-shrink-0 rounded-xl overflow-hidden shadow-md bg-white"
+          >
+            <img src={item.image} alt={item.title} className="w-full h-40 object-cover" />
+            <div className="p-3 text-center font-medium">{item.title}</div>
+          </div>
+        ))}
+      </div>
 
       {/* Right Arrow */}
       <button
-        onClick={nextSlide}
-        className="absolute top-1/2 right-2 -translate-y-1/2 bg-white/70 rounded-full p-2 hover:bg-white"
+        onClick={() => scroll("right")}
+        className="absolute top-1/2 right-2 -translate-y-1/2 z-10 bg-white/70 p-2 rounded-full shadow hover:bg-white"
       >
-        <ChevronRight className="w-6 h-6 text-gray-800" />
+        <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+        </svg>
       </button>
-
-      {/* Dots indicator */}
-      <div className="flex justify-center mt-2 gap-2">
-        {images.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => setCurrent(index)}
-            className={`w-3 h-3 rounded-full ${
-              current === index ? "bg-gray-800" : "bg-gray-400"
-            }`}
-          />
-        ))}
-      </div>
     </div>
   );
 }
-
-export default Carousel;

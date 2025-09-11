@@ -14,23 +14,22 @@ export default function IndexPage() {
         <div className="inline-block max-w-lg text-center justify-center">
           {/* <span className={title()}>Make&nbsp;</span> */}
 
-          
           <span className={title()}>Cinder Watch&nbsp;</span>
           <br />
           {/* <span className={title()}>
             websites regardless of your design experience.
           </span> */}
           <div className={subtitle({ class: "mt-4" })}>
-            The Game Library for discovering, organizing, and sharing your favorite games.
+            The Game Library for discovering, organizing, and sharing your
+            favorite games.
           </div>
         </div>
-        
+
         <div className="flex justify-center flex-col absolute">
           <div className="flex justify-center z-[-1] opacity-40 mb-[-16px]">
             <img src="public/sunbros.jpg" className=""></img>
-            
           </div>
-          <Divider className="my-4 bg-[#DB924B] h-0.5"/>
+          <Divider className="my-4 bg-[#DB924B] h-0.5" />
         </div>
 
         <div className="flex gap-3">
@@ -46,11 +45,7 @@ export default function IndexPage() {
           >
             Explore
           </Link>
-          
         </div>
-        
-      </section>
-      <section>
         <Carousel />
       </section>
     </DefaultLayout>
