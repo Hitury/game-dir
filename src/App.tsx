@@ -6,6 +6,7 @@ import PricingPage from "@/pages/pricing";
 import GameInfo from "@/pages/game-info";
 import ProfileUI from "@/pages/profile-ui";
 import AboutPage from "@/pages/about";
+import ContactPage from "@/pages/contact";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <Route element={<GameInfo />} path="/game-info" />
       <Route element={<ProfileUI />} path="/profile-ui" />
       <Route element={<AboutPage />} path="/about" />
+      <Route element={<ContactPage />} path="/contact" />
     </Routes>
   );
 }
