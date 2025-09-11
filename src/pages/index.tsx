@@ -14,7 +14,7 @@ export default function IndexPage() {
           {/* <span className={title()}>Make&nbsp;</span> */}
 
           
-          <span className={title({ color: "yellow" })}>Cinder Watch&nbsp;</span>
+          <span className={title()}>Cinder Watch&nbsp;</span>
           <br />
           {/* <span className={title()}>
             websites regardless of your design experience.
