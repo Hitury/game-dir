@@ -1,57 +1,53 @@
-import { useRef, useEffect } from "react";
+import { useRef } from "react";
 
 const items = [
-  { id: 1, title: "Card 1", image: "https://picsum.photos/id/1015/400/250" },
-  { id: 2, title: "Card 2", image: "https://picsum.photos/id/1016/400/250" },
-  { id: 3, title: "Card 3", image: "https://picsum.photos/id/1018/400/250" },
-  { id: 4, title: "Card 4", image: "https://picsum.photos/id/1020/400/250" },
-  { id: 5, title: "Card 5", image: "https://picsum.photos/id/1021/400/250" },
-  { id: 6, title: "Card 6", image: "https://picsum.photos/id/1022/400/250" },
+  { id: 1, title: "Norway", image: "https://i.imgur.com/4l34fU2.jpeg" },
+  { id: 2, title: "Australia", image: "https://i.imgur.com/fR282ts.jpeg" },
+  { id: 3, title: "Alaska", image: "https://i.imgur.com/GVAW32s.jpeg" },
+  { id: 4, title: "Smoky Mountains", image: "https://i.imgur.com/5lTzH2e.jpeg" },
+  { id: 5, title: "Scotland", image: "https://i.imgur.com/h5FRl3T.jpeg" },
+  { id: 6, title: "Denali", image: "https://i.imgur.com/gOQot7s.jpeg" },
 ];
 
-export default function InfiniteCarousel() {
+export default function SnappingCarousel() {
   const scrollRef = useRef<HTMLDivElement | null>(null);
 
-  // Clone items for infinite scroll
-  const extendedItems = [...items, ...items, ...items]; // triple to allow seamless loop
-
-  useEffect(() => {
-    if (scrollRef.current) {
-      const container = scrollRef.current;
-      // Start in the middle set
-      container.scrollLeft = container.scrollWidth / 3;
-    }
-  }, []);
+  // No useEffect is needed; the carousel will default to the starting position.
+  // We also no longer need to clone the items array.
 
   const scroll = (direction: "left" | "right") => {
     if (!scrollRef.current) return;
+
     const container = scrollRef.current;
-    const scrollAmount = container.clientWidth / 2; // scroll half viewport
-    const newScroll = direction === "left" ? container.scrollLeft - scrollAmount : container.scrollLeft + scrollAmount;
+    const scrollAmount = container.clientWidth; // Scroll by the full container width
 
-    container.scrollTo({ left: newScroll, behavior: "smooth" });
-  };
+    if (direction === "left") {
+      // Scroll left. The browser will automatically stop at the beginning.
+      container.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+    } else {
+      // For right scroll, check if we are near the end.
+      // A 1px buffer is added to account for potential sub-pixel rounding.
+      const isAtEnd =
+        container.scrollLeft + container.clientWidth >= container.scrollWidth - 1;
 
-  // Adjust scroll position if at start or end
-  const handleScroll = () => {
-    if (!scrollRef.current) return;
-    const container = scrollRef.current;
-    const totalWidth = container.scrollWidth;
-    const thirdWidth = totalWidth / 3;
-
-    if (container.scrollLeft <= 0) {
-      container.scrollLeft = thirdWidth;
-    } else if (container.scrollLeft >= thirdWidth * 2) {
-      container.scrollLeft = thirdWidth;
+      if (isAtEnd) {
+        // If at the end, smoothly scroll back to the very beginning.
+        container.scrollTo({ left: 0, behavior: "smooth" });
+      } else {
+        // Otherwise, just scroll to the right.
+        container.scrollBy({ left: scrollAmount, behavior: "smooth" });
+      }
     }
   };
+
+  // The onScroll handler has been removed as it's no longer necessary.
 
   return (
     <div className="relative w-full max-w-5xl mx-auto">
       {/* Left Arrow */}
       <button
         onClick={() => scroll("left")}
-        className="absolute top-1/2 left-2 -translate-y-1/2 z-10 bg-white/70 p-2 rounded-full shadow hover:bg-white"
+        className="absolute top-1/2 left-2 -translate-y-1/2 z-10 bg-white/70 p-2 rounded-full shadow-lg hover:bg-white focus:outline-none"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -67,16 +63,16 @@ export default function InfiniteCarousel() {
       {/* Carousel Container */}
       <div
         ref={scrollRef}
-        onScroll={handleScroll}
         className="flex overflow-x-auto scroll-smooth no-scrollbar space-x-4 px-10"
       >
-        {extendedItems.map((item, index) => (
+        {/* We now map over the original `items` array */}
+        {items.map((item) => (
           <div
-            key={`${item.id}-${index}`}
-            className="min-w-[250px] flex-shrink-0 rounded-xl overflow-hidden shadow-md bg-white"
+            key={item.id}
+            className="min-w-[300px] flex-shrink-0 rounded-xl overflow-hidden shadow-lg bg-white"
           >
-            <img src={item.image} alt={item.title} className="w-full h-40 object-cover" />
-            <div className="p-3 text-center font-medium">{item.title}</div>
+            <img src={item.image} alt={item.title} className="w-full h-48 object-cover" />
+            <div className="p-4 text-center font-semibold text-lg">{item.title}</div>
           </div>
         ))}
       </div>
@@ -84,7 +80,7 @@ export default function InfiniteCarousel() {
       {/* Right Arrow */}
       <button
         onClick={() => scroll("right")}
-        className="absolute top-1/2 right-2 -translate-y-1/2 z-10 bg-white/70 p-2 rounded-full shadow hover:bg-white"
+        className="absolute top-1/2 right-2 -translate-y-1/2 z-10 bg-white/70 p-2 rounded-full shadow-lg hover:bg-white focus:outline-none"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
