@@ -11,6 +11,8 @@ export default function IndexPage() {
       <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
         <div className="inline-block max-w-lg text-center justify-center">
           {/* <span className={title()}>Make&nbsp;</span> */}
+
+          
           <span className={title({ color: "yellow" })}>Cinder Watch&nbsp;</span>
           <br />
           {/* <span className={title()}>
@@ -20,6 +22,10 @@ export default function IndexPage() {
             The Game Library for discovering, organizing, and sharing your favorite games.
           </div>
         </div>
+
+        <div className="absolute flex justify-center z-[-1]">
+            <img src="public\sunbros.jpg" className=""></img>
+          </div>
 
         <div className="flex gap-3">
           <Link
