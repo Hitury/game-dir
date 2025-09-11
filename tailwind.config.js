@@ -1,4 +1,5 @@
 import { heroui } from "@heroui/theme";
+import { loadConfigFromFile } from "vite";
 
 /** @type {import('tailwindcss').Config} */
 export default {
