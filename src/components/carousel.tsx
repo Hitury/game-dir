@@ -1,12 +1,16 @@
 import { useRef } from "react";
 
 const items = [
-  { id: 1, title: "Norway", image: "https://i.imgur.com/4l34fU2.jpeg" },
-  { id: 2, title: "Australia", image: "https://i.imgur.com/fR282ts.jpeg" },
-  { id: 3, title: "Alaska", image: "https://i.imgur.com/GVAW32s.jpeg" },
-  { id: 4, title: "Smoky Mountains", image: "https://i.imgur.com/5lTzH2e.jpeg" },
-  { id: 5, title: "Scotland", image: "https://i.imgur.com/h5FRl3T.jpeg" },
-  { id: 6, title: "Denali", image: "https://i.imgur.com/gOQot7s.jpeg" },
+  { id: 1, title: "Placeholder", image: "public/praisethesun.jpg" },
+  { id: 2, title: "Placeholder", image: "public/praisethesun.jpg" },
+  { id: 3, title: "Placeholder", image: "public/praisethesun.jpg" },
+  { id: 4, title: "Placeholder", image: "public/praisethesun.jpg" },
+  { id: 5, title: "Placeholder", image: "public/praisethesun.jpg" },
+  { id: 6, title: "Placeholder", image: "public/praisethesun.jpg" },
+  { id: 7, title: "Placeholder", image: "public/praisethesun.jpg" },
+  { id: 8, title: "Placeholder", image: "public/praisethesun.jpg" },
+  { id: 9, title: "Placeholder", image: "public/praisethesun.jpg" },
+  { id: 10, title: "Placeholder", image: "public/praisethesun.jpg" },
 ];
 
 export default function SnappingCarousel() {
