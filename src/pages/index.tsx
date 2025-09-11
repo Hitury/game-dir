@@ -24,7 +24,7 @@ export default function IndexPage() {
         </div>
 
         <div className="absolute flex justify-center z-[-1] opacity-40">
-            <img src="public\sunbros.jpg" className=""></img>
+            <img src="public/sunbros.jpg" className=""></img>
           </div>
 
         <div className="flex gap-3">
