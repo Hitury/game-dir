@@ -49,6 +49,7 @@ export default function IndexPage() {
         </div>
       </section>
       <Carousel/>
+      <Divider className="my-4 bg-[#DB924B] h-0.5" />
       <CarouselTop />
       
     </DefaultLayout>

@@ -1,8 +1,9 @@
 import React from 'react';
+import { Divider } from "@heroui/divider";
 
 const Carousel: React.FC = () => {
   return (
-    <div className="bg-gray-900 p-6 rounded-lg max-w-lg mx-auto">
+    <div className="bg-gray-900 p-6 rounded-lg mt-35 max-w-lg mx-auto">
       <h2 className="text-white text-2xl mb-4">Top Sellers</h2>
       <div className="relative">
         <div className="flex overflow-hidden">
