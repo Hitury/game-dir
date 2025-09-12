@@ -1,4 +1,4 @@
-import { title } from "@/components/primitives";
+import { subtitle, title } from "@/components/primitives";
 import DefaultLayout from "@/layouts/default";
 
 export default function DocsPage() {
@@ -30,6 +30,10 @@ export default function DocsPage() {
               />
             </svg>
           </div>
+          {/* Categories (h1 tag is subtitle lol) */}
+          <h1 className={subtitle()}>Categories</h1>
+          <br/>
+          <button className="rounded-full bg-amber-100 p-[10px] w-2xs">FPS</button>
         </div>
       </section>
     </DefaultLayout>
