@@ -1,19 +1,26 @@
 import { Route, Routes } from "react-router-dom";
 
 import IndexPage from "@/pages/index";
-import DocsPage from "@/pages/docs";
+import ExplorerPage from "@/pages/explorer";
 import PricingPage from "@/pages/pricing";
-import BlogPage from "@/pages/blog";
+import GameInfo from "@/pages/game-info";
+import ProfileUI from "@/pages/profile-ui";
 import AboutPage from "@/pages/about";
+import ContactPage from "@/pages/contact";
+import LoginPage from "@/pages/login";
+
 
 function App() {
   return (
     <Routes>
       <Route element={<IndexPage />} path="/" />
-      <Route element={<DocsPage />} path="/docs" />
+      <Route element={<ExplorerPage />} path="/explorer" />
       <Route element={<PricingPage />} path="/pricing" />
-      <Route element={<BlogPage />} path="/blog" />
+      <Route element={<GameInfo />} path="/game-info" />
+      <Route element={<ProfileUI />} path="/profile-ui" />
       <Route element={<AboutPage />} path="/about" />
+      <Route element={<ContactPage />} path="/contact" />
+      <Route element={<LoginPage />} path="/login" />
     </Routes>
   );
 }

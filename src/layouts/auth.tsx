@@ -1,15 +1,12 @@
 import { Link } from "@heroui/link";
 
-import { Navbar } from "@/components/navbar";
-
-export default function DefaultLayout({
+export default function AuthLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <div className="relative flex flex-col h-screen">
-      <Navbar />
+    <div className="relative flex flex-col h-screen bg-[#20161f]">
       <main className="container mx-auto max-w-7xl px-6 flex-grow pt-16">
         {children}
       </main>

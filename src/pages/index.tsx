@@ -1,11 +1,11 @@
 import { Link } from "@heroui/link";
-import { Snippet } from "@heroui/snippet";
-import { Code } from "@heroui/code";
 import { button as buttonStyles } from "@heroui/theme";
+import { Divider } from "@heroui/divider";
 
 import { siteConfig } from "@/config/site";
 import { title, subtitle } from "@/components/primitives";
-import { GithubIcon } from "@/components/icons";
+import Carousel from "@/components/carousel";
+import CarouselTop from "@/components/carousel-top";
 import DefaultLayout from "@/layouts/default";
 
 export default function IndexPage() {
@@ -13,15 +13,24 @@ export default function IndexPage() {
     <DefaultLayout>
       <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
         <div className="inline-block max-w-lg text-center justify-center">
-          <span className={title()}>Make&nbsp;</span>
-          <span className={title({ color: "violet" })}>beautiful&nbsp;</span>
+          {/* <span className={title()}>Make&nbsp;</span> */}
+
+          <span className={title()}>Cinder Watch&nbsp;</span>
           <br />
-          <span className={title()}>
+          {/* <span className={title()}>
             websites regardless of your design experience.
-          </span>
+          </span> */}
           <div className={subtitle({ class: "mt-4" })}>
-            Beautiful, fast and modern React UI library.
+            The Game Library for discovering, organizing, and sharing your
+            favorite games.
           </div>
+        </div>
+
+        <div className="flex justify-center flex-col absolute">
+          <div className="flex justify-center z-[-1] opacity-40 mb-[-16px]">
+            <img src="/sunbros.jpg" className=""></img>
+          </div>
+          <Divider className="my-4 bg-[#DB924B] h-0.5" />
         </div>
 
         <div className="flex gap-3">
@@ -29,32 +38,21 @@ export default function IndexPage() {
             isExternal
             className={buttonStyles({
               color: "primary",
-              radius: "full",
+              radius: "md",
+              className: "text-xl font-semibold p-[30px]",
               variant: "shadow",
             })}
             href={siteConfig.links.docs}
           >
-            Documentation
+            Explore
           </Link>
-          <Link
-            isExternal
-            className={buttonStyles({ variant: "bordered", radius: "full" })}
-            href={siteConfig.links.github}
-          >
-            <GithubIcon size={20} />
-            GitHub
-          </Link>
-        </div>
-
-        <div className="mt-8">
-          <Snippet hideCopyButton hideSymbol variant="bordered">
-            <span>
-              Get started by editing{" "}
-              <Code color="primary">pages/index.tsx</Code>
-            </span>
-          </Snippet>
         </div>
       </section>
+      <Carousel/>
+      <Divider className="my-4 bg-[#DB924B] h-0.5" />
+      <CarouselTop />
+      
     </DefaultLayout>
+    
   );
 }
