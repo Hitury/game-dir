@@ -8,7 +8,7 @@ export default function DocsPage() {
         <div className="flex flex-col items-center max-w-lg text-center">
           <h1 className={title()}>Explorer</h1>
           <br />
-          <div className="relative w-[600px] max-w-xl">
+          <div className="relative w-[600px] max-w-xl mt-[30px]">
             <input
               className="bg-[#00000055] p-3 pr-10 w-full rounded-xl focus:outline-none"
               placeholder="Search"
