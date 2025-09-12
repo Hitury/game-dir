@@ -27,7 +27,7 @@ export default function IndexPage() {
 
         <div className="flex justify-center flex-col absolute">
           <div className="flex justify-center z-[-1] opacity-40 mb-[-16px]">
-            <img src="public/sunbros.jpg" className=""></img>
+            <img src="/sunbros.jpg" className=""></img>
           </div>
           <Divider className="my-4 bg-[#DB924B] h-0.5" />
         </div>

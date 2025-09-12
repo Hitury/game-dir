@@ -1,16 +1,16 @@
 import { useRef } from "react";
 
 const items = [ // Praise the Sun!
-  { id: 1, title: "Placeholder", image: "public/praisethesun.jpg" },
-  { id: 2, title: "Placeholder", image: "public/praisethesun.jpg" },
-  { id: 3, title: "Placeholder", image: "public/praisethesun.jpg" },
-  { id: 4, title: "Placeholder", image: "public/praisethesun.jpg" },
-  { id: 5, title: "Placeholder", image: "public/praisethesun.jpg" },
-  { id: 6, title: "Placeholder", image: "public/praisethesun.jpg" },
-  { id: 7, title: "Placeholder", image: "public/praisethesun.jpg" },
-  { id: 8, title: "Placeholder", image: "public/praisethesun.jpg" },
-  { id: 9, title: "Placeholder", image: "public/praisethesun.jpg" },
-  { id: 10, title: "Placeholder", image: "public/praisethesun.jpg" },
+  { id: 1, title: "Placeholder", image: "/praisethesun.jpg" },
+  { id: 2, title: "Placeholder", image: "/praisethesun.jpg" },
+  { id: 3, title: "Placeholder", image: "/praisethesun.jpg" },
+  { id: 4, title: "Placeholder", image: "/praisethesun.jpg" },
+  { id: 5, title: "Placeholder", image: "/praisethesun.jpg" },
+  { id: 6, title: "Placeholder", image: "/praisethesun.jpg" },
+  { id: 7, title: "Placeholder", image: "/praisethesun.jpg" },
+  { id: 8, title: "Placeholder", image: "/praisethesun.jpg" },
+  { id: 9, title: "Placeholder", image: "/praisethesun.jpg" },
+  { id: 10, title: "Placeholder", image: "/praisethesun.jpg" },
 ];
 
 export default function SnappingCarousel() {
