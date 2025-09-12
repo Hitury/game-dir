@@ -5,6 +5,7 @@ import { Divider } from "@heroui/divider";
 import { siteConfig } from "@/config/site";
 import { title, subtitle } from "@/components/primitives";
 import Carousel from "@/components/carousel";
+import CarouselTop from "@/components/carousel-top";
 import DefaultLayout from "@/layouts/default";
 
 export default function IndexPage() {
@@ -48,6 +49,8 @@ export default function IndexPage() {
         </div>
       </section>
       <Carousel/>
+      <CarouselTop />
+      
     </DefaultLayout>
     
   );
