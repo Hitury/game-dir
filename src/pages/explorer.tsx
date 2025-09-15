@@ -1,5 +1,7 @@
 import { subtitle, title } from "@/components/primitives";
 import DefaultLayout from "@/layouts/default";
+import { Divider } from "@heroui/divider";
+import Carousel from "@/components/carousel-explorer";
 
 export default function DocsPage() {
   return (
@@ -44,6 +46,8 @@ export default function DocsPage() {
             <button className="w-20 rounded-full bg-[#db934b21] p-[10px] hover:bg-[#db934b7d]">Anime</button>
           </div>
         </div>
+        <Divider className="my-4 bg-[#DB924B] h-0.5" />
+        <Carousel />
       </section>
     </DefaultLayout>
   );
