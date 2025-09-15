@@ -109,7 +109,7 @@ export const Navbar = () => {
             isExternal
             as={Link}
             className="text-sm font-normal ml-2 text-black bg-[#DB924B]"
-            href={siteConfig.links.sponsor}
+            href={siteConfig.links.login}
             variant="flat"
           >
             Login
