@@ -49,7 +49,7 @@ export default function IndexPage() {
         </div>
       </section>
       <h1 className={title()}>Featured</h1>
-      <Carousel/>
+      <Carousel titleText="Featured"/>
       <Divider className="mt-8 mb-8 bg-[#DB924B] h-0.5" />
       <CarouselTop />
       

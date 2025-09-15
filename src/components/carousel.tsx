@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import { title, subtitle } from "@/components/primitives";
 
 const items = [ // Praise the Sun!
   { id: 1, title: "Placeholder", image: "/praisethesun.jpg" },
@@ -13,7 +14,7 @@ const items = [ // Praise the Sun!
   { id: 10, title: "Placeholder", image: "/praisethesun.jpg" },
 ];
 
-export default function SnappingCarousel() {
+function SnappingCarousel({ titleText }: { titleText: string }) {
   const scrollRef = useRef<HTMLDivElement | null>(null);
 
   // No useEffect is needed; the carousel will default to the starting position.
@@ -48,6 +49,7 @@ export default function SnappingCarousel() {
 
   return (
     <div className="relative w-full max-w-5xl mx-auto mt-[30rem]">
+      <h1 className="">{titleText}</h1>
       {/* Left Arrow */}
       <button
         onClick={() => scroll("left")}
@@ -99,3 +101,5 @@ export default function SnappingCarousel() {
     </div>
   );
 }
+
+export default SnappingCarousel;
