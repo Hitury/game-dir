@@ -48,11 +48,13 @@ export default function IndexPage() {
           </Link>
         </div>
       </section>
-      <h1 className={title()}>Featured</h1>
+      <br className="mt-60" />"
       <Carousel titleText="Featured"/>
-      <Divider className="mt-8 mb-8 bg-[#DB924B] h-0.5" />
+      <Carousel titleText="Featured"/>
+      <Carousel titleText="Featured"/>
+      <Divider className="mt-28 mb-8 bg-[#DB924B] h-0.5" />
       <CarouselTop />
-      
+
     </DefaultLayout>
     
   );

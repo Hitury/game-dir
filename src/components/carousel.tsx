@@ -48,8 +48,8 @@ function SnappingCarousel({ titleText }: { titleText: string }) {
   // The onScroll handler has been removed as it's no longer necessary.
 
   return (
-    <div className="relative w-full max-w-5xl mx-auto mt-[30rem]">
-      <h1 className="">{titleText}</h1>
+    <div className="relative w-full max-w-5xl mx-auto">
+      <h1 className="text-[42px] mb-5 font-semibold">{titleText}</h1>
       {/* Left Arrow */}
       <button
         onClick={() => scroll("left")}
@@ -86,7 +86,7 @@ function SnappingCarousel({ titleText }: { titleText: string }) {
       {/* Right Arrow */}
       <button
         onClick={() => scroll("right")}
-        className="absolute top-1/2 right-2 -translate-y-1/2 z-10 bg-[#db934b9b] p-2 rounded-full shadow-lg hover:bg-[#DB924B] transition"
+        className="absolute top-1/2 right-2 -translate-y-1/2 z-10 p-2 rounded-full shadow-lg hover:bg-[#DB924B] bg-[#db934b9b] transition"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
