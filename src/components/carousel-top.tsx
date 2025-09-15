@@ -22,21 +22,21 @@ const games: Game[] = [
     title: "ELDEN RING",
     price: "$59,99",
     description:
-      "Climb a massive mountain full of tight platforming challenges and discover a heartfelt story of perseverance.",
+      "In Elden Ring, the player, a Tarnished, must traverse the Lands Between to collect the shattered runes of the Elden Ring and become the next Elden Lord.",
     image: "eldenring.avif",
   },
   {
     title: "Dark Souls III",
     price: "$59,99",
     description:
-      "Fight your way through ever-changing dungeons in this roguevania full of action and discovery.",
+      "In Dark Souls III, the Age of Fire is ending as the First Flame begins to fade, and the player, an Unkindled warrior, must find and force the Lords of Cinder—previous heroes who linked the flame—to return to their thrones to rekindle it and prevent the world's descent into a prolonged Age of Dark.",
     image: "public/ds3.png",
   },
   {
     title: "Balatro",
     price: "$14,99",
     description:
-      "A visually stunning action-platformer with emotional storytelling and fluid movement.",
+      "Balatro is a poker-inspired roguelike deck builder all about creating powerful synergies and winning big. Combine valid poker hands with unique Joker cards in order to create varied synergies and builds.",
     image: "public/balatro.png",
   },
   {
