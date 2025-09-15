@@ -4,7 +4,7 @@ import { Divider } from "@heroui/divider";
 
 import { siteConfig } from "@/config/site";
 import { title, subtitle } from "@/components/primitives";
-import Carousel from "@/components/carousel";
+import Carousel from "@/components/carousel-explorer";
 import CarouselTop from "@/components/carousel-top";
 import DefaultLayout from "@/layouts/default";
 
@@ -49,9 +49,24 @@ export default function IndexPage() {
         </div>
       </section>
       <br className="mt-60" />"
-      <Carousel titleText="Featured"/>
-      <Carousel titleText="Featured"/>
-      <Carousel titleText="Featured"/>
+      <h1 id="recommended" className={title()}>Recommended for You</h1>
+                <Carousel />
+                <h1 id="fps" className={title()}>FPS</h1>
+                <Carousel />
+                <h1 id="souls-like" className={title()}>Souls Like</h1>
+                <Carousel />
+                <h1 id="rpg" className={title()}>RPG</h1>
+                <Carousel />
+                <h1 id="racing" className={title()}>Racing</h1>
+                <Carousel />
+                <h1 id="survival" className={title()}>Survival</h1>
+                <Carousel />
+                <h1 id="co-op" className={title()}>Co-Op</h1>
+                <Carousel />
+                <h1 id="rogue-like" className={title()}>Rogue-Like</h1>
+                <Carousel />
+                <h1 id="anime" className={title()}>Anime</h1>
+                <Carousel />
       <Divider className="mt-28 mb-8 bg-[#DB924B] h-0.5" />
       <CarouselTop />
 
