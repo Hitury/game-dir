@@ -3,20 +3,26 @@ import DefaultLayout from "@/layouts/default";
 import { Divider } from "@heroui/divider";
 import Carousel from "@/components/carousel-explorer";
 
+// Function to handle smooth scrolling to a specific section
 const scrollToSection = (sectionId: string) => {
+    // Get the section element by its ID
     const section = document.getElementById(sectionId);
+    // If the section exists, scroll to it smoothly
     if (section) {
         section.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 };
 
+// Main component for the documentation page
 export default function DocsPage() {
     return (
         <DefaultLayout>
             <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
+                {/* Container for the title and search bar */}
                 <div className="flex flex-col items-center max-w-lg text-center">
                     <h1 className={title()}>Explorer</h1>
                     <br />
+                    {/* Search bar with an input field and search icon */}
                     <div className="relative w-[600px] max-w-xl mt-[30px]">
                         <input
                             className="bg-[#00000055] p-3 pr-10 w-full rounded-xl focus:outline-none"
@@ -39,9 +45,10 @@ export default function DocsPage() {
                             />
                         </svg>
                     </div>
-                    {/* Categories (h1 tag is subtitle lol) */}
+                    {/* Subtitle for Categories */}
                     <h1 className={subtitle()}>Categories</h1>
                     <br />
+                    {/* Button group for categories with click events for scrolling */}
                     <div className="flex items-center space-x-2">
                         <button onClick={() => scrollToSection('fps')} className="w-20 rounded-full bg-[#db934b21] p-[10px] hover:bg-[#db934b7d]">FPS</button>
                         <button onClick={() => scrollToSection('souls-like')} className="w-28 rounded-full bg-[#db934b21] p-[10px] hover:bg-[#db934b7d]">Souls Like</button>
@@ -53,7 +60,9 @@ export default function DocsPage() {
                         <button onClick={() => scrollToSection('anime')} className="w-20 rounded-full bg-[#db934b21] p-[10px] hover:bg-[#db934b7d]">Anime</button>
                     </div>
                 </div>
+                {/* Divider between sections */}
                 <Divider className="my-16 bg-[#DB924B] h-0.5" />
+                {/* Section headers for different categories */}
                 <h1 id="recommended" className={title()}>Recommended for You</h1>
                 <Carousel />
                 <h1 id="fps" className={title()}>FPS</h1>
