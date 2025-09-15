@@ -4,17 +4,15 @@ import DefaultLayout from "@/layouts/default";
 export default function DocsPage() {
   return (
     <DefaultLayout>
-      <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
-        <div className="min-h-screen gap-4 py-8 md:py-10">
-          <div className="inline-block max-w-lg text-center justify-center">
-            <h1 className={title()}>About</h1>
-            <h2 className={subtitle()}>Learn about the awesome developers who build this website</h2>
-            <div className="bg-white w-110 h-130">
-              <img src="/pfpIJvadeli.png"/>
-            </div>
-            <div className="bg-black w-110 h-130">
-              <img src="/pfpHitury.png"/>
-            </div>
+      <section className="min-h-screen gap-4 py-8 md:py-10">
+        <div className="flex flex-row justify-center items-center">
+         <div className="text-center w-250 h-130">
+            <img className="w-[175px] rounded-full" src="/pfpIJvadeli.png"/>
+            <h1 className={title()}>IJvadeli</h1>
+          </div>
+          <div className="text-center w-250 h-130">
+            <img className="w-[175px] rounded-full" src="/pfpHitury.png"/>
+            <h1 className={title()}>Hitury</h1>
           </div>
         </div>
       </section>
