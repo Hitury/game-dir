@@ -33,7 +33,16 @@ export default function DocsPage() {
           {/* Categories (h1 tag is subtitle lol) */}
           <h1 className={subtitle()}>Categories</h1>
           <br/>
-          <button className="rounded-full bg-amber-100 p-[10px] w-2xs">FPS</button>
+          <div className="flex items-center space-x-2">
+            <button className="w-20 rounded-full bg-[#db934b21] p-[10px] hover:bg-[#db934b7d]">FPS</button>
+            <button className="w-28 rounded-full bg-[#db934b21] p-[10px] hover:bg-[#db934b7d]">Souls Like</button>
+            <button className="w-20 rounded-full bg-[#db934b21] p-[10px] hover:bg-[#db934b7d]">RPG</button>
+            <button className="w-20 rounded-full bg-[#db934b21] p-[10px] hover:bg-[#db934b7d]">Racing</button>
+            <button className="w-20 rounded-full bg-[#db934b21] p-[10px] hover:bg-[#db934b7d]">Survival</button>
+            <button className="w-20 rounded-full bg-[#db934b21] p-[10px] hover:bg-[#db934b7d]">Co-Op</button>
+            <button className="w-28 rounded-full bg-[#db934b21] p-[10px] hover:bg-[#db934b7d]">Rogue-Like</button>
+            <button className="w-20 rounded-full bg-[#db934b21] p-[10px] hover:bg-[#db934b7d]">Anime</button>
+          </div>
         </div>
       </section>
     </DefaultLayout>
