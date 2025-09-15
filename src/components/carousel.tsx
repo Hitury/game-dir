@@ -53,7 +53,7 @@ function SnappingCarousel({ titleText }: { titleText: string }) {
       {/* Left Arrow */}
       <button
         onClick={() => scroll("left")}
-        className="absolute top-1/2 left-2 -translate-y-1/2 z-10 bg-[#DB924B] p-2 rounded-full shadow-lg hover:bg-[#DB924B] focus:outline-none"
+        className="absolute top-1/2 left-2 -translate-y-1/2 z-10 bg-[#db934b9b] p-2 rounded-full shadow-lg hover:bg-[#DB924B] focus:outline-none"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -86,7 +86,7 @@ function SnappingCarousel({ titleText }: { titleText: string }) {
       {/* Right Arrow */}
       <button
         onClick={() => scroll("right")}
-        className="absolute top-1/2 right-2 -translate-y-1/2 z-10 bg-[#DB924B] p-2 rounded-full shadow-lg hover:bg-[#DB924B]"
+        className="absolute top-1/2 right-2 -translate-y-1/2 z-10 bg-[#db934b9b] p-2 rounded-full shadow-lg hover:bg-[#DB924B]"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
