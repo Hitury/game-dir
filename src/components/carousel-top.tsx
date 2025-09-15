@@ -78,7 +78,7 @@ export default function GameShowcase() {
         </button>
 
         {/* Main Content */}
-        <div className="relative flex bg-[#2e2237] shadow-lg rounded-xl overflow-hidden w-full h-[400px]">
+        <div className="relative flex bg-[#00000050] shadow-lg rounded-xl overflow-hidden w-full h-[400px]">
           
           <AnimatePresence mode="wait" custom={direction}>
             <motion.div
@@ -100,7 +100,7 @@ export default function GameShowcase() {
               </div>
 
               {/* Right Side - Description */}
-              <div className="w-1/3 bg-[#1E1525] flex flex-col justify-between p-6">
+              <div className="w-1/3 bg-[#00000050] flex flex-col justify-between p-6">
                 <div>
                   <h3 className="text-xl font-semibold mb-2">
                     {games[currentIndex].title}
