@@ -47,7 +47,7 @@ export default function SnappingCarousel() {
   // The onScroll handler has been removed as it's no longer necessary.
 
   return (
-    <div className="relative w-full max-w-5xl mx-auto">
+    <div className="relative w-full max-w-5xl mx-auto mb-15 mt-5">
       {/* Left Arrow */}
       <button
         onClick={() => scroll("left")}
