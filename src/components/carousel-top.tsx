@@ -20,21 +20,21 @@ const games: Game[] = [
   },
   {
     title: "ELDEN RING",
-    price: "$14.99",
+    price: "$59,99",
     description:
       "Climb a massive mountain full of tight platforming challenges and discover a heartfelt story of perseverance.",
     image: "eldenring.avif",
   },
   {
     title: "Dark Souls III",
-    price: "$24.99",
+    price: "$59,99",
     description:
       "Fight your way through ever-changing dungeons in this roguevania full of action and discovery.",
     image: "public/ds3.png",
   },
   {
     title: "Balatro",
-    price: "$19.99",
+    price: "$14,99",
     description:
       "A visually stunning action-platformer with emotional storytelling and fluid movement.",
     image: "public/balatro.png",
@@ -65,7 +65,7 @@ export default function GameShowcase() {
   return (
     <div className=" flex flex-col items-center justify-center text-white p-6">
       {/* Top Sellers Title */}
-      <h2 className="text-xl font-bold text-[#d4a373] mb-4 self-start">Top Sellers</h2>
+      <h2 className="text-xl font-bold text-[#DB924B] mb-4 self-start">Top Sellers</h2>
 
       <div className="flex items-center gap-4 w-full max-w-5xl">
         {/* Left Arrow */}
@@ -112,7 +112,7 @@ export default function GameShowcase() {
                     {games[currentIndex].description}
                   </p>
                 </div>
-                <Button className="bg-[#d4a373] text-black hover:bg-[#b88a5c] mt-4 w-fit">
+                <Button className="bg-[#DB924B] text-black hover:bg-[#b88a5c] mt-4 w-fit">
                   Buy Now
                 </Button>
               </div>
