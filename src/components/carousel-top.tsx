@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Button } from "@heroui/button";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 type Game = {
   title: string;
@@ -49,26 +50,26 @@ const games: Game[] = [
 
 export default function GameShowcase() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [direction, setDirection] = useState<"left" | "right">("right");
 
   const prevSlide = () => {
-    setCurrentIndex((prev) =>
-      prev === 0 ? games.length - 1 : prev - 1
-    );
+    setDirection("left");
+    setCurrentIndex((prev) => (prev === 0 ? games.length - 1 : prev - 1));
   };
 
   const nextSlide = () => {
-    setCurrentIndex((prev) =>
-      prev === games.length - 1 ? 0 : prev + 1
-    );
+    setDirection("right");
+    setCurrentIndex((prev) => (prev === games.length - 1 ? 0 : prev + 1));
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center text-white p-6 bg-[#1E1525]">
+    <div className=" flex flex-col items-center justify-center text-white p-6">
       {/* Top Sellers Title */}
-      <h2 className="text-sm text-[#d4a373] mb-4 self-start">Top Sellers</h2>
+      <h2 className="text-xl font-bold text-[#d4a373] mb-4 self-start">Top Sellers</h2>
 
       <div className="flex items-center gap-4 w-full max-w-5xl">
         {/* Left Arrow */}
+        
         <button
           onClick={prevSlide}
           className="p-2 bg-[#2e2237] rounded-full hover:bg-[#3a2b47] transition"
@@ -77,31 +78,46 @@ export default function GameShowcase() {
         </button>
 
         {/* Main Content */}
-        <div className="flex bg-[#2e2237] shadow-lg rounded-xl overflow-hidden w-full">
-          {/* Left Side - Image */}
-          <div className="relative w-2/3 h-[400px] bg-black flex items-center justify-center">
-            <img
-              src={games[currentIndex].image}
-              alt={games[currentIndex].title}
-              className="object-cover w-full h-full"
-            />
-          </div>
+        <div className="relative flex bg-[#2e2237] shadow-lg rounded-xl overflow-hidden w-full h-[400px]">
+          
+          <AnimatePresence mode="wait" custom={direction}>
+            <motion.div
+              key={currentIndex}
+              className="flex w-full h-full"
+              custom={direction}
+              initial={{ opacity: 0, x: direction === "right" ? 100 : -100 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: direction === "right" ? -100 : 100 }}
+              transition={{ duration: 0.5, ease: "easeInOut" }}
+            >
+              {/* Left Side - Image */}
+              <div className="relative w-2/3 h-full bg-black flex items-center justify-center">
+                <img
+                  src={games[currentIndex].image}
+                  alt={games[currentIndex].title}
+                  className="object-cover w-full h-full"
+                />
+              </div>
 
-          {/* Right Side - Description */}
-          <div className="w-1/3 bg-[#1E1525] flex flex-col justify-between p-6">
-            <div>
-              <h3 className="text-xl font-semibold mb-2">{games[currentIndex].title}</h3>
-              <p className="text-[#d4a373] mb-2">
-                {games[currentIndex].price}
-              </p>
-              <p className="text-sm text-gray-300">
-                {games[currentIndex].description}
-              </p>
-            </div>
-            <Button className="bg-[#d4a373] text-black hover:bg-[#b88a5c] mt-4 w-fit">
-              Buy Now
-            </Button>
-          </div>
+              {/* Right Side - Description */}
+              <div className="w-1/3 bg-[#1E1525] flex flex-col justify-between p-6">
+                <div>
+                  <h3 className="text-xl font-semibold mb-2">
+                    {games[currentIndex].title}
+                  </h3>
+                  <p className="text-[#d4a373] mb-2">
+                    {games[currentIndex].price}
+                  </p>
+                  <p className="text-sm text-gray-300">
+                    {games[currentIndex].description}
+                  </p>
+                </div>
+                <Button className="bg-[#d4a373] text-black hover:bg-[#b88a5c] mt-4 w-fit">
+                  Buy Now
+                </Button>
+              </div>
+            </motion.div>
+          </AnimatePresence>
         </div>
 
         {/* Right Arrow */}
@@ -120,7 +136,10 @@ export default function GameShowcase() {
             key={i}
             src={game.image}
             alt={game.title}
-            onClick={() => setCurrentIndex(i)}
+            onClick={() => {
+              setDirection(i > currentIndex ? "right" : "left");
+              setCurrentIndex(i);
+            }}
             className={`w-16 h-16 object-cover rounded-md border cursor-pointer transition ${
               currentIndex === i
                 ? "border-[#d4a373]"
