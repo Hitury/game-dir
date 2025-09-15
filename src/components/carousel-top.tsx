@@ -72,7 +72,7 @@ export default function GameShowcase() {
         
         <button
           onClick={prevSlide}
-          className="p-2 hover:bg-[#DB924B] bg-[#db934b9b] transition rounded-full hover:bg-[#3a2b47]"
+          className="p-2 hover:bg-[#DB924B] bg-[#db934b9b] transition rounded-full"
         >
           <ChevronLeft className="text-black" />
         </button>
@@ -123,7 +123,7 @@ export default function GameShowcase() {
         {/* Right Arrow */}
         <button
           onClick={nextSlide}
-          className="p-2 hover:bg-[#DB924B] bg-[#db934b9b] transition rounded-full hover:bg-[#3a2b47]"
+          className="p-2 hover:bg-[#DB924B] bg-[#db934b9b] transition rounded-full"
         >
           <ChevronRight className="text-black" />
         </button>
