@@ -48,27 +48,17 @@ export default function IndexPage() {
           </Link>
         </div>
       </section>
-      <br className="mt-60" />"
-      <h1 id="recommended" className={title()}>Recommended for You</h1>
-                <Carousel />
-                <h1 id="fps" className={title()}>FPS</h1>
-                <Carousel />
-                <h1 id="souls-like" className={title()}>Souls Like</h1>
-                <Carousel />
-                <h1 id="rpg" className={title()}>RPG</h1>
-                <Carousel />
-                <h1 id="racing" className={title()}>Racing</h1>
-                <Carousel />
-                <h1 id="survival" className={title()}>Survival</h1>
-                <Carousel />
-                <h1 id="co-op" className={title()}>Co-Op</h1>
-                <Carousel />
-                <h1 id="rogue-like" className={title()}>Rogue-Like</h1>
-                <Carousel />
-                <h1 id="anime" className={title()}>Anime</h1>
-                <Carousel />
-      <Divider className="mt-28 mb-8 bg-[#DB924B] h-0.5" />
-      <CarouselTop />
+      <br className="mt-60" />
+      <div className="text-center">
+        <h1 id="recommended" className={title()}>Recommended for You</h1>
+                  <Carousel />
+                  <h1 id="fps" className={title()}>Featured</h1>
+                  <Carousel />
+                  <h1 id="souls-like" className={title()}>Favorites</h1>
+                  <Carousel />
+        <Divider className="mt-28 mb-8 bg-[#DB924B] h-0.5" />
+        <CarouselTop />
+      </div>
 
     </DefaultLayout>
     
