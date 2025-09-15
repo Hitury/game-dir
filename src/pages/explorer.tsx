@@ -46,7 +46,24 @@ export default function DocsPage() {
             <button className="w-20 rounded-full bg-[#db934b21] p-[10px] hover:bg-[#db934b7d]">Anime</button>
           </div>
         </div>
-        <Divider className="my-4 bg-[#DB924B] h-0.5" />
+        <Divider className="my-16 bg-[#DB924B] h-0.5" />
+        <h1 className={title()}>Recommended for You</h1>
+        <Carousel />
+        <h1 className={title()}>FPS</h1>
+        <Carousel />
+        <h1 className={title()}>Souls Like</h1>
+        <Carousel />
+        <h1 className={title()}>RPG</h1>
+        <Carousel />
+        <h1 className={title()}>Racing</h1>
+        <Carousel />
+        <h1 className={title()}>Survival</h1>
+        <Carousel />
+        <h1 className={title()}>Co-Op</h1>
+        <Carousel />
+        <h1 className={title()}>Rogue-Like</h1>
+        <Carousel />
+        <h1 className={title()}>Anime</h1>
         <Carousel />
       </section>
     </DefaultLayout>
