@@ -48,14 +48,15 @@ export default function IndexPage() {
           </Link>
         </div>
       </section>
-      <br className="mt-60" />
+      <div className="mt-100"></div>
+      {/* Div containing Carousels with Games */}
       <div className="text-center">
         <h1 id="recommended" className={title()}>Recommended for You</h1>
-                  <Carousel />
-                  <h1 id="fps" className={title()}>Featured</h1>
-                  <Carousel />
-                  <h1 id="souls-like" className={title()}>Favorites</h1>
-                  <Carousel />
+        <Carousel />
+        <h1 id="fps" className={title()}>Featured</h1>
+        <Carousel />
+        <h1 id="souls-like" className={title()}>Favorites</h1>
+        <Carousel />
         <Divider className="mt-28 mb-8 bg-[#DB924B] h-0.5" />
         <CarouselTop />
       </div>
