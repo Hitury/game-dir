@@ -1,5 +1,6 @@
 import { subtitle, title } from "@/components/primitives";
 import DefaultLayout from "@/layouts/default";
+import { Divider } from "@heroui/divider";
 
 export default function DocsPage() {
   return (
@@ -23,6 +24,7 @@ export default function DocsPage() {
           </p>
         </div>
       </section>
+      <Divider className="my-4 bg-[#DB924B] h-0.5" />
     </DefaultLayout>
   );
 }
