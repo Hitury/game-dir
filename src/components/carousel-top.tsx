@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Button } from "@heroui/button";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
@@ -15,28 +15,28 @@ const games: Game[] = [
     price: "$19.99",
     description:
       "Venture into the vast depths of Hallownest, a ruined kingdom full of challenges, mysteries, and powerful foes.",
-    image: "https://picsum.photos/id/1018/600/400",
+    image: "hk.webp",
   },
   {
-    title: "Celeste",
+    title: "ELDEN RING",
     price: "$14.99",
     description:
       "Climb a massive mountain full of tight platforming challenges and discover a heartfelt story of perseverance.",
-    image: "https://picsum.photos/id/1015/600/400",
+    image: "eldenring.avif",
   },
   {
-    title: "Dead Cells",
+    title: "Dark Souls III",
     price: "$24.99",
     description:
       "Fight your way through ever-changing dungeons in this roguevania full of action and discovery.",
-    image: "https://picsum.photos/id/1019/600/400",
+    image: "public/ds3.png",
   },
   {
-    title: "Ori and the Blind Forest",
+    title: "Balatro",
     price: "$19.99",
     description:
       "A visually stunning action-platformer with emotional storytelling and fluid movement.",
-    image: "https://picsum.photos/id/1021/600/400",
+    image: "public/balatro.png",
   },
   {
     title: "Hades",
@@ -90,7 +90,7 @@ export default function GameShowcase() {
           {/* Right Side - Description */}
           <div className="w-1/3 bg-[#1E1525] flex flex-col justify-between p-6">
             <div>
-              <h3 className="text-xl font-semibold mb-2">Description</h3>
+              <h3 className="text-xl font-semibold mb-2">{games[currentIndex].title}</h3>
               <p className="text-[#d4a373] mb-2">
                 {games[currentIndex].price}
               </p>
