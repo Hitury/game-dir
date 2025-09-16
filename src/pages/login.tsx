@@ -11,7 +11,8 @@ export default function LoginPage() {
     <Input
       isRequired
       className="max-w-xs"
-      defaultValue="junior@heroui.com"
+      defaultValue=""
+      placeholder="solaire@cinderwatch.com"
       label="Email"
       type="email"
     />
@@ -21,7 +22,8 @@ export default function LoginPage() {
       isRequired
       minLength={5}
       className="max-w-xs"
-      defaultValue="junior@heroui.com"
+      defaultValue=""
+      placeholder="Enter your password"
       label="Password"
       type="password"
     />
