@@ -100,7 +100,7 @@ export default function GameShowcase() {
               </div>
 
               {/* Description Section */}
-              <div className="w-full md:w-1/3 bg-[#00000050] flex flex-col justify-between p-4 sm:p-6">
+              <div className="w-full md:w-1/3 bg-[#00000050] flex flex-col justify-between p-4 sm:p-6 md:justify-center">
                 <div>
                   <h3 className="text-lg sm:text-xl font-semibold mb-2">
                     {games[currentIndex].title}

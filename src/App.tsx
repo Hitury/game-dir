@@ -8,6 +8,7 @@ import ProfileUI from "@/pages/profile-ui";
 import AboutPage from "@/pages/about";
 import ContactPage from "@/pages/contact";
 import LoginPage from "@/pages/login";
+import SupportPage from "@/pages/support";
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
       <Route element={<AboutPage />} path="/about" />
       <Route element={<ContactPage />} path="/contact" />
       <Route element={<LoginPage />} path="/login" />
+      <Route element={<SupportPage />} path="/support" />
     </Routes>
   );
 }

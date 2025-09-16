@@ -95,25 +95,27 @@ export const Navbar = () => {
         </NavbarItem>
         <NavbarItem className="hidden lg:flex">{searchInput}</NavbarItem>
         <NavbarItem className="hidden md:flex">
+          <Link href={siteConfig.links.sponsor}>
           <Button
             isExternal
             as={Link}
             className="text-sm font-normal text-default-600 bg-default-100"
-            href={siteConfig.links.sponsor}
             startContent={<HeartFilledIcon className="text-danger" />}
             variant="flat"
           >
             Support us!
           </Button>
+          </Link>
+          <Link href="/login">
           <Button
             isExternal
             as={Link}
             className="text-sm font-normal ml-2 text-black bg-[#DB924B]"
-            href={siteConfig.links.login}
             variant="flat"
           >
             Login
           </Button>
+          </Link>
         </NavbarItem>
       </NavbarContent>
 
