@@ -63,11 +63,11 @@ export default function LoginPage() {
   return (
     <AuthLayout>
       <section className="h-[100%] flex items-center justify-center">
-        <div className="flex flex-col bg-[#2d1f2c] rounded-sm p-7 rounded-lg shadow-lg sm:flex-row">
-          <div className="bg-[#DB924B] w-110 h-130 rounded-sm flex items-start justify-start text-black p-3 bg-[url('public/solaireandsiegmeyer.jpg')] bg-cover">
+        <div className="flex flex-col bg-[#2d1f2c] rounded-sm p-7 rounded-lg shadow-lg sm:flex-row justify-center">
+          <div className="bg-[#DB924B] w-110 h-130 rounded-sm flex items-start justify- self-center text-black p-3 bg-[url('public/solaireandsiegmeyer.jpg')] bg-cover">
             <p className="font-bold text-inherit">CINDERWATCH</p>
           </div>
-          <div className="bg-[#2d1f2c] w-110 h-130 flex flex-col items-center justify-start gap-7 p-10 ml-7">
+          <div className="bg-[#2d1f2c] w-110 h-130 flex flex-col items-center justify-center gap-7 p-10 sm:ml-7">
             <h1 className="font-semibold text-[40px] text-[#c59f5e]">
               Create an Account
             </h1>
