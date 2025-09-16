@@ -1,5 +1,8 @@
 import { Link } from "@heroui/link";
 
+import { siteConfig } from "@/config/site";
+import { ThemeSwitch } from "@/components/theme-switch";
+
 export default function AuthLayout({
   children,
 }: {
@@ -7,6 +10,9 @@ export default function AuthLayout({
 }) {
   return (
     <div className="relative flex flex-col flex-1 h-screen bg-[#20161f]">
+      <div className="hidden">
+        <ThemeSwitch />
+      </div>
       <main className="container mx-auto max-w-7xl px-6 flex-grow pt-16">
         {children}
       </main>

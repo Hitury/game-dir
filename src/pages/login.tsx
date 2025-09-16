@@ -8,19 +8,11 @@ import { Input } from "@heroui/input";
 export default function LoginPage() {
   const searchInput = (
     <Input
-      aria-label="Email"
-      classNames={{
-        inputWrapper: "bg-[#20161f]",
-        input: "text-sm",
-      }}
-      endContent={
-        <Kbd className="lg:inline-block" keys={["command"]}>
-          K
-        </Kbd>
-      }
-      labelPlacement="outside"
-      placeholder="Email"
-      type="Email"
+      isRequired
+      className="max-w-xs"
+      defaultValue="junior@heroui.com"
+      label="Email"
+      type="email"
     />
   );
 
