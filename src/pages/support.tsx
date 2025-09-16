@@ -23,18 +23,20 @@ export default function DocsPage() {
             <li>- Able to post reviews on games</li>
           </ul>
         </span>
-        <div className="flex">
-          <div className="my-[20px] w-1/2">
-            <h1 className={title()}>Enter a Price</h1> {/* Number input for Donations */}
-            <NumberInput />
-            <p className="text-red-300">Minimum = $1,99</p>
-            <p className="text-green-300">Any donation higher than $4,99 disables ads</p>
-          </div>
-          <div className="my-[20px] w-1/2">
-            <h1 className={title()}>Become a Supporter</h1> {/* Input for monthly or yearly subscription */}
-            <NumberInput />
-            <p className="text-red-300">Monthly = $1,99</p>
-            <p className="text-green-300">Yearly = $17,91 (SAVE 25%)</p>
+        <div className="flex justify-center">
+          <div className="flex w-[100vh] text-center items-center">
+            <div className="my-[20px] w-1/2">
+              <h1 className={title()}>Enter a Price</h1> 
+              <NumberInput />
+              <p className="text-red-300">Minimum = $1,99</p>
+              <p className="text-green-300">Any donation higher than $4,99 disables ads</p>
+            </div>
+            <div className="my-[20px] w-1/2">
+              <h1 className={title()}>Become a Supporter</h1> 
+              <NumberInput />
+              <p className="text-red-300">Monthly = $1,99</p>
+              <p className="text-green-300">Yearly = $17,91 (SAVE 25%)</p>
+            </div>
           </div>
         </div>
       </section>
