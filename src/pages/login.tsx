@@ -5,7 +5,13 @@ import { Button } from "@heroui/button";
 import { Kbd } from "@heroui/kbd";
 import { Input } from "@heroui/input";
 import { Divider } from "@heroui/divider";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+
+const images = [
+  "solaireandsiegmeyer.jpg",
+  "sunbros.jpg",
+];
 
 export default function LoginPage() {
   const emailInput = (
@@ -18,6 +24,17 @@ export default function LoginPage() {
       type="email"
     />
   );
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  // Auto slide every 5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % images.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
   const passInput = (
     <Input
       isRequired
@@ -106,10 +123,20 @@ export default function LoginPage() {
   return (
     <AuthLayout>
       <section className="h-[100%] flex items-center justify-center">
-        <div className="flex flex-col bg-[#2d1f2c] rounded-sm p-7 rounded-lg shadow-lg sm:flex-row justify-center">
-          <div className="bg-[#DB924B] w-110 h-130 rounded-sm flex items-start justify- self-center text-black p-3 bg-[url('public/solaireandsiegmeyer.jpg')] bg-cover">
-            <p className="font-bold text-inherit">CINDERWATCH</p>
-          </div>
+        <div className="flex flex-col bg-[#2d1f2c] rounded-sm p-7 rounded-lg shadow-lg sm:flex-row justify-center overflow-hidden">
+          {/* <div className="bg-[#DB924B] w-110 h-130 rounded-sm flex items-start justify- self-center text-black p-3"> */}
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentIndex}
+              className="bg-[#DB924B] w-110 h-130 rounded-sm flex items-start bg-cover self-center text-black p-3"
+              style={{ backgroundImage: `url(${images[currentIndex]})` }}
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -50 }}
+              transition={{ duration: 0.8, ease: "easeInOut" }}
+            />
+          </AnimatePresence>
+          {/* </div> */}
           <div className="bg-[#2d1f2c] w-110 h-130 flex flex-col items-center justify-center gap-7 p-10 sm:ml-7">
             <h1 className="font-semibold text-[40px] text-[#c59f5e]">Login</h1>
             {emailInput}
@@ -154,7 +181,12 @@ export default function LoginPage() {
                 <h3 className="mb-10">Or</h3>
                 <Divider className="w-32" />
               </div>
-              <Link href="#" size="md" className="bottom-6 transition" underline="hover">
+              <Link
+                href="#"
+                size="md"
+                className="bottom-6 transition"
+                underline="hover"
+              >
                 Sign Up
               </Link>
               <div className="flex flex-row gap-4 flex-1 mb-4">
