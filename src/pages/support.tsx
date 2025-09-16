@@ -31,7 +31,7 @@ export default function DocsPage() {
             <p className="text-green-300">Any donation higher than $4,99 disables ads</p>
           </div>
           <div className="my-[20px] w-1/2">
-            <h1 className={title()}>Become a Supporter</h1> {/* Number input for Donations */}
+            <h1 className={title()}>Become a Supporter</h1> {/* Input for monthly or yearly subscription */}
             <NumberInput />
             <p className="text-red-300">Monthly = $1,99</p>
             <p className="text-green-300">Yearly = $17,91 (SAVE 25%)</p>
