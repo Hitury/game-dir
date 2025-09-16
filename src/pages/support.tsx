@@ -25,13 +25,13 @@ export default function DocsPage() {
         </span>
         <div className="flex justify-center">
           <div className="flex w-[100vh] text-center items-center">
-            <div className="my-[20px] w-1/2">
+            <div className="my-[20px] w-1/2 flex justify-center flex-col items-center gap-3">
               <h1 className={title()}>Enter a Price</h1> 
               <NumberInput />
               <p className="text-red-300">Minimum = $1,99</p>
               <p className="text-green-300">Any donation higher than $4,99 disables ads</p>
             </div>
-            <div className="my-[20px] w-1/2">
+            <div className="my-[20px] w-1/2 flex justify-center flex-col items-center gap-3">
               <h1 className={title()}>Become a Supporter</h1> 
               <NumberInput />
               <p className="text-red-300">Monthly = $1,99</p>
