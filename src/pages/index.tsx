@@ -39,7 +39,7 @@ export default function IndexPage() {
             className={buttonStyles({
               color: "primary",
               radius: "md",
-              className: "text-xl font-semibold p-[30px]",
+              className: "text-xl font-semibold p-[30px] bg-[#c59f5e]",
               variant: "shadow",
             })}
             href={siteConfig.links.docs}

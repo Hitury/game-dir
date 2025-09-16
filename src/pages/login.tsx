@@ -37,7 +37,7 @@ export default function LoginPage() {
             <p className="font-bold text-inherit">CINDERWATCH</p>
           </div>
           <div className="bg-[#2d1f2c] w-110 h-130 flex flex-col items-center justify-start gap-7 p-10 ml-7">
-            <h1 className="font-semibold text-[40px] text-white">
+            <h1 className="font-semibold text-[40px] text-[#c59f5e]">
               Create an Account
             </h1>
             {emailInput}

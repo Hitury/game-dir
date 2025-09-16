@@ -110,7 +110,7 @@ export const Navbar = () => {
           <Button
             isExternal
             as={Link}
-            className="text-sm font-normal ml-2 text-black bg-[#DB924B]"
+            className="text-sm font-normal ml-2 text-black bg-[#c59f5e]"
             variant="flat"
           >
             Login
