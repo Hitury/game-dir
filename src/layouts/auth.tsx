@@ -10,7 +10,7 @@ export default function AuthLayout({
 }) {
   return (
     <div className="relative flex flex-col flex-1 h-screen bg-[#20161f]">
-      <div className="hidden">
+      <div className="p-5">
         <ThemeSwitch />
       </div>
       <main className="container mx-auto max-w-7xl px-6 flex-grow pt-16">
