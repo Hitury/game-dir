@@ -5,7 +5,14 @@ import { Divider } from "@heroui/divider";
 export default function DocsPage() {
   return (
     <DefaultLayout>
-      <section className="min-h-screen flex flex-nowrap justify-center items-start gap-8 px-4 py-12 overflow-x-auto">
+      <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
+        <div className="inline-block max-w-lg text-center justify-center">
+          <h1 className={title()}>About</h1>
+          <h1 className={subtitle()}>Learn about the awesome developers who build this website</h1>
+        </div>
+      </section>
+      <Divider className="my-4 bg-[#DB924B] h-0.5" />
+      <section className="flex flex-nowrap justify-center items-start gap-8 px-4 py-12 overflow-x-auto">
         {/* Card 1 */}
         <div className="w-[400px] flex-shrink-0 flex flex-col items-center text-center">
           <img className="w-[175px] rounded-full" src="/pfpIJvadeli.png" />
@@ -24,7 +31,6 @@ export default function DocsPage() {
           </p>
         </div>
       </section>
-      <Divider className="my-4 bg-[#DB924B] h-0.5" />
     </DefaultLayout>
   );
 }
