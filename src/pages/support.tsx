@@ -1,7 +1,7 @@
 import { subtitle, title } from "@/components/primitives";
 import DefaultLayout from "@/layouts/default";
 import { Divider } from "@heroui/divider";
-import numberInput from "@/components/numberinput";
+import NumberInput from "@/components/numberinput";
 
 export default function DocsPage() {
   return (
@@ -25,7 +25,7 @@ export default function DocsPage() {
         </span>
         <div className="my-[20px]">
           <h1 className={title()}>Enter a Price</h1> {/* Number input for Donations */}
-          <numberInput />
+          <NumberInput />
         </div>
       </section>
     </DefaultLayout>

@@ -1,7 +1,7 @@
 import {NumberInput} from "@heroui/react";
 
 function numberInput() {
-    return(
+    return (
         <NumberInput className="w-[300px]"
               endContent={
                 <div className="flex items-center">
