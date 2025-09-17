@@ -33,7 +33,6 @@ export default function DocsPage() {
           ★ ★ ★ ☆ ☆
           ★ ★ ★ ★ ☆
           ★ ★ ★ ★ ★
-          
           */}
         </div>
       </section>
