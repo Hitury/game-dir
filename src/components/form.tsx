@@ -63,6 +63,12 @@ export default function App() {
     else if (data.name === "ijsbrand van de lindt") {
       newErrors.name = "Don't bother...";
     }
+    else if (data.name === "Kanker") {
+      newErrors.name = "Daar mag je niet mee schelden he? FF normaal doen...";
+    }
+    else if (data.name === "kanker") {
+      newErrors.name = "Je weet toch dat dat niet mag he...";
+    }
 
 
     if (Object.keys(newErrors).length > 0) {
@@ -147,6 +153,7 @@ export default function App() {
           <SelectItem key="ca">Canada</SelectItem>
           <SelectItem key="uk">United Kingdom</SelectItem>
           <SelectItem key="au">Australia</SelectItem>
+          <SelectItem key="nl">Netherlands</SelectItem>
         </Select>
 
         <Checkbox
