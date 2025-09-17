@@ -23,7 +23,7 @@ export default function DocsPage() {
         <div className="relative z-10 inline-block max-w-100% text-left align-bottom">
           <h1 className={title()}>Game Info</h1>
           <h2 className={subtitle()}>Creator: IJvadeli - 5 Stars 10/10 gameplay</h2>
-          <h1 className={title()}>STER STER STER STER STER</h1> {/*5 sterren :thumbs_up:*/}
+          <h1 className={title()}>★ ☆ ☆ ☆ ☆</h1> {/*5 sterren COPY PASTE = ☆, ★ */}
         </div>
       </section>
     </DefaultLayout>
