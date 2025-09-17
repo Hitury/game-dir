@@ -1,5 +1,7 @@
 import { subtitle, title } from "@/components/primitives";
 import DefaultLayout from "@/layouts/default";
+import { Divider } from "@heroui/divider";
+import { ScrollToTopButton } from '@/components/scrolltotop';
 
 export default function DocsPage() {
   return (
@@ -26,6 +28,8 @@ export default function DocsPage() {
           <h1 className={title()}>★ ☆ ☆ ☆ ☆</h1> {/*5 sterren COPY PASTE = ☆, ★ */}
         </div>
       </section>
+      <Divider className="bg-[#DB924B] h-0.5" />
+      <ScrollToTopButton />
     </DefaultLayout>
   );
 }
