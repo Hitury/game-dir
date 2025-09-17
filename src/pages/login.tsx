@@ -7,6 +7,7 @@ import { Input } from "@heroui/input";
 import { Divider } from "@heroui/divider";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 const images = [
   "solaireandsiegmeyer.jpg",
@@ -120,8 +121,29 @@ export default function LoginPage() {
     }, 2000);
   };
 
+  const navigate = useNavigate();
+  const [isLeaving, setIsLeaving] = useState(false);
+
+  const handleGoSignup = (e: React.MouseEvent) => {
+    e.preventDefault();              // stop immediate navigation
+    if (isLeaving) return;           // guard double clicks
+    setIsLeaving(true);              // start exit animation
+  };
+
   return (
-    <AuthLayout>
+    <motion.div
+      // start at center
+      initial={{ x: 0, opacity: 1 }}
+      // animate depends on whether we're leaving
+      animate={isLeaving ? { x: "-100vw", opacity: 0 } : { x: 0, opacity: 1 }}
+      transition={{ duration: 0.45, ease: "easeInOut" }}
+      // after exit animation finished, navigate
+      onAnimationComplete={() => {
+        if (isLeaving) navigate("/signup");
+      }}
+      className="min-h-screen"
+    >
+      <AuthLayout>
       <section className="h-[100%] flex items-center justify-center">
         <div className="flex flex-col bg-[#2d1f2c] rounded-sm p-7 rounded-lg shadow-lg sm:flex-row justify-center overflow-hidden">
           {/* <div className="bg-[#DB924B] w-110 h-130 rounded-sm flex items-start justify- self-center text-black p-3"> */}
@@ -182,7 +204,7 @@ export default function LoginPage() {
                 <Divider className="w-32" />
               </div>
               <Link
-                href="/signup"
+                onClick={handleGoSignup}
                 size="md"
                 className="bottom-6 transition"
                 underline="hover"
@@ -220,5 +242,7 @@ export default function LoginPage() {
         </div>
       </section>
     </AuthLayout>
+    </motion.div>
+    
   );
 }

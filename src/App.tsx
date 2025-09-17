@@ -14,7 +14,7 @@ import { AnimatePresence } from "framer-motion";
 function App() {
   return (
     <AnimatePresence mode="wait">
-      <Routes>
+      <Routes location={location} key={location.pathname}>
       {" "}
       <Route element={<IndexPage />} path="/" />{" "}
       <Route element={<ExplorerPage />} path="/explorer" />{" "}
@@ -27,7 +27,7 @@ function App() {
       <Route
         path="/login"
           element={
-            <PageWrapper>
+            <PageWrapper key="login">
               <LoginPage />
             </PageWrapper>
           }
@@ -35,7 +35,7 @@ function App() {
         <Route
           path="/signup"
           element={
-            <PageWrapper>
+            <PageWrapper key="signup">
               <SignupPage />
             </PageWrapper>
           }
