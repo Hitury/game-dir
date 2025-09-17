@@ -51,6 +51,19 @@ export default function App() {
     else if (data.name === "hitury") {
       newErrors.name = "Lowercase, really?";
     }
+    else if (data.name === "Akshay Lautan") {
+      newErrors.name = "You are creepy...";
+    }
+    else if (data.name === "akshay lautan") {
+      newErrors.name = "Lowercase won't save you...";
+    }
+    else if (data.name === "IJsbrand van de Lindt") {
+      newErrors.name = "Stalker...";
+    }
+    else if (data.name === "ijsbrand van de lindt") {
+      newErrors.name = "Don't bother...";
+    }
+
 
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
