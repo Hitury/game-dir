@@ -4,10 +4,10 @@ import {Form, Input, Select, SelectItem, Checkbox, Button} from "@heroui/react";
 export default function App() {
   const [password, setPassword] = React.useState("");
   const [submitted, setSubmitted] = React.useState(null);
-  const [errors, setErrors] = React.useState({});
+  const [errors, setErrors] = React.useState<Record<string, string | undefined>>({});
 
   // Real-time password validation
-  const getPasswordError = (value) => {
+  const getPasswordError = (value: string) => {
     if (value.length < 4) {
       return "Password must be 4 characters or more";
     }
@@ -21,15 +21,15 @@ export default function App() {
     return null;
   };
 
-  const onSubmit = (e) => {
+  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const data = Object.fromEntries(new FormData(e.currentTarget));
 
     // Custom validation checks
-    const newErrors = {};
+    const newErrors: Record<string, string | undefined> = {};
 
     // Password validation
-    const passwordError = getPasswordError(data.password);
+    const passwordError = getPasswordError(typeof data.password === "string" ? data.password : "");
 
     if (passwordError) {
       newErrors.password = passwordError;
