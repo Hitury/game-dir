@@ -166,10 +166,10 @@ export default function SignupPage() {
   return (
     <AuthLayout>
       <section className="h-[100%] flex items-center justify-center">
-        <div className="flex flex-col bg-[#2d1f2c] rounded-sm py-20 px-35 rounded-lg shadow-lg sm:flex-row justify-center overflow-hidden">
+        <div className="flex flex-col bg-[#2d1f2c] rounded-sm py-20 px-12 mb-10 rounded-xl shadow-lg sm:flex-row justify-center overflow-hidden">
           <div className="bg-[#2d1f2c] w-110 h-130 flex flex-col items-center justify-start gap-6 sm:ml-7">
-            <div className="flex flex-col justify-center items-center gap-3 w-[100%] mb-5">
-              <h2>Register with</h2>
+            <div className="flex flex-col justify-center items-center gap-4 w-[100%] mb-5">
+              <h2>Register with:</h2>
               <div>
                 <div className="flex flex-row gap-4 flex-1 mb-4">
                   <Button
@@ -198,7 +198,11 @@ export default function SignupPage() {
                   </Button>
                 </div>
               </div>
-              <Divider className="w-[100%]" />
+              <div className="flex flex-row gap-5 justify-center w-[43%]">
+                <Divider className="w-full"/>
+                <h3 className="mb-1">Or</h3>
+                <Divider className="w-full" />
+              </div>
             </div>
             <Form
               className="flex flex-col w-[100%] gap-5 justify-center items-center"
