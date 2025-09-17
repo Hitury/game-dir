@@ -1,35 +1,74 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Input } from "@heroui/input";
 import { Card, CardBody } from "@heroui/card";
 import { Avatar } from "@heroui/avatar";
+import { Spinner } from "@heroui/spinner";
 import DefaultLayout from "@/layouts/default";
 import { title } from "@/components/primitives";
+import { ScrollToTopButton } from '@/components/scrolltotop';
 
-// Example profiles (replace with API later)
-const profiles = [
-  { id: 1, name: "Solaire of Astora", bio: "Loyal knight who praises the sun.", avatar: "/avatars/solaire.jpg" },
-  { id: 2, name: "Siegmeyer of Catarina", bio: "Onion knight with a big heart.", avatar: "/avatars/siegmeyer.jpg" },
-  { id: 3, name: "Knight Artorias", bio: "The Abysswalker, a fallen hero.", avatar: "/avatars/artorias.jpg" },
-  { id: 4, name: "Maiden Astraea", bio: "A saint corrupted by the Valley of Defilement.", avatar: "/avatars/astraea.jpg" },
-  { id: 5, name: "Gwyndolin", bio: "The last-born deity of Anor Londo.", avatar: "/avatars/gwyndolin.jpg" },
-  { id: 6, name: "Oscar of Astora", bio: "Knight who gives the player the Estus Flask.", avatar: "/avatars/oscar.jpg" },
-  { id: 7, name: "Lady Maria of the Astral Clocktower", bio: "A hunter of hunters bound to her oath.", avatar: "/avatars/maria.jpg" },
-  { id: 8, name: "Gehrman", bio: "The first hunter, mentor in the Hunter’s Dream.", avatar: "/avatars/gehrman.jpg" },
-  { id: 9, name: "Malenia, Blade of Miquella", bio: "An Empyrean and unmatched warrior.", avatar: "/avatars/malenia.jpg" },
-  { id: 10, name: "Ranni the Witch", bio: "Mysterious Lunar Princess who seeks her own fate.", avatar: "/avatars/ranni.jpg" },
-  { id: 11, name: "The Nameless King", bio: "God of War who allied with the storm drakes.", avatar: "/avatars/namelessking.jpg" },
-  { id: 12, name: "Patches the Hyena", bio: "The trickster who betrays at every chance.", avatar: "/avatars/patches.jpg" },
-  { id: 13, name: "Hitury", bio: "Biggest elden ring glazer to date", avatar: "/pfpHitury.png" },
-  { id: 14, name: "IJvadeli", bio: "Kippie is mijn pookie", avatar: "/pfpIJvadeli.png" },
-];
-
+// Mock "database" of profiles
+const allProfiles = Array.from({ length: 100 }, (_, i) => ({
+  id: i + 1,
+  name: `Solaire ${i + 1}`,
+  bio: `This is a description for Solaire ${i + 1}.`,
+  avatar: `/avatars/avatar${(i % 6) + 1}.jpg`, // cycles through 6 avatar files
+}));
 
 export default function ProfileSearchPage() {
   const [query, setQuery] = useState("");
+  const [visibleProfiles, setVisibleProfiles] = useState<typeof allProfiles>(
+    []
+  );
+  const [hasMore, setHasMore] = useState(true);
+  const [loading, setLoading] = useState(false);
+  const loaderRef = useRef<HTMLDivElement | null>(null);
 
-  const filteredProfiles = profiles.filter((p) =>
+  const filteredProfiles = allProfiles.filter((p) =>
     p.name.toLowerCase().includes(query.toLowerCase())
   );
+
+  // Reset when search query changes
+  useEffect(() => {
+    setVisibleProfiles(filteredProfiles.slice(0, 12));
+    setHasMore(filteredProfiles.length > 12);
+  }, [query]);
+
+  // Fake fetch function (simulates API delay)
+  const fetchMoreProfiles = async () => {
+    if (loading) return;
+    setLoading(true);
+
+    await new Promise((res) => setTimeout(res, 1000)); // simulate 1s delay
+
+    setVisibleProfiles((prev) => {
+      const next = filteredProfiles.slice(0, prev.length + 12);
+      setHasMore(next.length < filteredProfiles.length);
+      return next;
+    });
+
+    setLoading(false);
+  };
+
+  // Infinite scroll
+  useEffect(() => {
+    if (!loaderRef.current || !hasMore) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting && hasMore && !loading) {
+          fetchMoreProfiles();
+        }
+      },
+      { threshold: 1.0 }
+    );
+
+    observer.observe(loaderRef.current);
+
+    return () => {
+      if (loaderRef.current) observer.unobserve(loaderRef.current);
+    };
+  }, [filteredProfiles, hasMore, loading]);
 
   return (
     <DefaultLayout>
@@ -49,7 +88,7 @@ export default function ProfileSearchPage() {
 
         {/* Results Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-6xl mt-6">
-          {filteredProfiles.map((profile) => (
+          {visibleProfiles.map((profile) => (
             <Card
               key={profile.id}
               className="bg-[#00000050] hover:bg-[#00000070] transition rounded-xl shadow-lg"
@@ -72,10 +111,18 @@ export default function ProfileSearchPage() {
           ))}
         </div>
 
+        {/* Loader sentinel */}
+        {hasMore && (
+          <div ref={loaderRef} className="py-6 flex justify-center">
+            {loading && <Spinner size="lg" color="warning" />}
+          </div>
+        )}
+
         {filteredProfiles.length === 0 && (
           <p className="text-gray-400 mt-6">No profiles found.</p>
         )}
       </section>
+      <ScrollToTopButton />
     </DefaultLayout>
   );
 }
