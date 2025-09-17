@@ -5,7 +5,7 @@ import Carousel from "@/components/carousel-explorer";
 import { ScrollToTopButton } from '@/components/scrolltotop'; // Adjust the path as needed
 
 // Function to handle smooth scrolling to a specific section
-const scrollToSection = (sectionId) => {
+const scrollToSection = (sectionId: string) => {
     const section = document.getElementById(sectionId);
     if (section) {
         section.scrollIntoView({ behavior: 'smooth', block: 'start' });

@@ -7,6 +7,7 @@ import { title, subtitle } from "@/components/primitives";
 import Carousel from "@/components/carousel-explorer";
 import CarouselTop from "@/components/carousel-top";
 import DefaultLayout from "@/layouts/default";
+import { ScrollToTopButton } from '@/components/scrolltotop';
 
 export default function IndexPage() {
   return (
@@ -60,7 +61,7 @@ export default function IndexPage() {
         <Divider className="mt-28 mb-8 bg-[#DB924B] h-0.5" />
         <CarouselTop />
       </div>
-
+      <ScrollToTopButton />
     </DefaultLayout>
     
   );
