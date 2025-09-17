@@ -198,9 +198,9 @@ export default function LoginPage() {
               </Button>
             </Link>
             <div className="flex flex-col justify-center items-center">
-              <div className="flex flex-row gap-5 justify-center">
+              <div className="flex flex-row gap-5 justify-center w-[40%] items-center mb-10">
                 <Divider className="w-32" />
-                <h3 className="mb-10">Or</h3>
+                <h3 className="">Or</h3>
                 <Divider className="w-32" />
               </div>
               <Link
