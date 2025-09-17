@@ -36,7 +36,7 @@ export default function App() {
     }
 
     // Username validation
-    if (data.name === "admin") {
+    if (data.name === "admin", "IJvadeli", "Hitury", "ijvadeli", "hitury") {
       newErrors.name = "Nice try! Choose a different username";
     }
 
