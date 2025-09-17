@@ -182,7 +182,7 @@ export default function LoginPage() {
                 <Divider className="w-32" />
               </div>
               <Link
-                href="#"
+                href="/signup"
                 size="md"
                 className="bottom-6 transition"
                 underline="hover"

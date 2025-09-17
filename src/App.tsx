@@ -8,9 +8,13 @@ import AboutPage from "@/pages/about";
 import ContactPage from "@/pages/contact";
 import LoginPage from "@/pages/login";
 import SupportPage from "@/pages/support";
+import PageWrapper from "./components/PageWrapper";
+import SignupPage from "@/pages/signup";
+import { AnimatePresence } from "framer-motion";
 function App() {
   return (
-    <Routes>
+    <AnimatePresence mode="wait">
+      <Routes>
       {" "}
       <Route element={<IndexPage />} path="/" />{" "}
       <Route element={<ExplorerPage />} path="/explorer" />{" "}
@@ -19,9 +23,25 @@ function App() {
       <Route element={<ProfileUI />} path="/profile-ui" />{" "}
       <Route element={<AboutPage />} path="/about" />{" "}
       <Route element={<ContactPage />} path="/contact" />{" "}
-      <Route element={<LoginPage />} path="/login" />{" "}
       <Route element={<SupportPage />} path="/support" />{" "}
+      <Route
+        path="/login"
+          element={
+            <PageWrapper>
+              <LoginPage />
+            </PageWrapper>
+          }
+        />
+        <Route
+          path="/signup"
+          element={
+            <PageWrapper>
+              <SignupPage />
+            </PageWrapper>
+          }
+        />
     </Routes>
+    </AnimatePresence>
   );
 }
 export default App;
