@@ -1,44 +1,19 @@
-import { useEffect, useState } from "react";
 import { subtitle, title } from "@/components/primitives";
 import DefaultLayout from "@/layouts/default";
 import { Divider } from "@heroui/divider";
 import Carousel from "@/components/carousel-explorer";
+import { ScrollToTopButton } from '@/components/scrolltotop'; // Adjust the path as needed
 
 // Function to handle smooth scrolling to a specific section
-const scrollToSection = (sectionId: string) => {
+const scrollToSection = (sectionId) => {
     const section = document.getElementById(sectionId);
     if (section) {
         section.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 };
 
-// Function to scroll to the top of the page
-const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-};
-
-export default function DocsPage() {
-    const [showScrollToTop, setShowScrollToTop] = useState(false);
-
-    // Effect to handle scroll position and show/hide the button
-    useEffect(() => {
-        const handleScroll = () => {
-            if (window.scrollY > 300) {
-                setShowScrollToTop(true);
-            } else {
-                setShowScrollToTop(false);
-            }
-        };
-
-        // Add scroll event listener
-        window.addEventListener("scroll", handleScroll);
-        
-        // Clean up the event listener on component unmount
-        return () => {
-            window.removeEventListener("scroll", handleScroll);
-        };
-    }, []);
-
+// Main functional component
+export default function ExplorerPage() {
     return (
         <DefaultLayout>
             <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
@@ -105,16 +80,7 @@ export default function DocsPage() {
                 <h1 id="anime" className={title()}>Anime</h1>
                 <Carousel />
             </section>
-
-            {/* Scroll to Top Button */}
-            {showScrollToTop && (
-                <button
-                    onClick={scrollToTop}
-                    className="fixed bottom-4 right-4 p-3 bg-[#db934b21] rounded-full hover:bg-[#db934b7d] transition"
-                >
-                    ↑ Top
-                </button>
-            )}
+            <ScrollToTopButton />
         </DefaultLayout>
     );
 }
