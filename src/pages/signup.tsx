@@ -166,7 +166,7 @@ export default function SignupPage() {
   return (
     <AuthLayout>
       <section className="h-[100%] flex items-center justify-center">
-        <div className="flex flex-col bg-[#2d1f2c] rounded-sm py-20 pb-27 px-12 mb-10 rounded-xl shadow-lg sm:flex-row justify-center items-center overflow-hidden">
+        <div className="flex flex-col bg-[#2d1f2c] rounded-sm py-18 pb-20 px-12 mb-10 rounded-xl shadow-lg sm:flex-row justify-center items-center overflow-hidden ">
           <div className="bg-[#2d1f2c] w-110 h-130 flex flex-col items-center justify-center gap-6">
             <div className="flex flex-col justify-center items-center gap-4 w-[100%] mb-5">
               <h2>Register with:</h2>

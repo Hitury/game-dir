@@ -55,7 +55,7 @@ export const siteConfig = {
     github: "https://github.com/frontio-ai/heroui",
     twitter: "https://twitter.com/hero_ui",
     docs: "https://heroui.com",
-    discord: "https://discord.gg/9b6yyZKmH4",
+    discord: "https://discord.gg/MgtMq8ZBTj",
     sponsor: "/support",
     login: "/login"
   },

@@ -9,7 +9,7 @@ export default function AuthLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="relative flex flex-col flex-1 h-screen bg-[#20161f]">
+    <div className="relative flex flex-col flex-1 h-screen">
       <div className="p-5">
         <ThemeSwitch />
       </div>
