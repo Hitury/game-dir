@@ -36,8 +36,20 @@ export default function App() {
     }
 
     // Username validation
-    if (data.name === "admin", "IJvadeli", "Hitury", "ijvadeli", "hitury") {
+    if (data.name === "admin") {
       newErrors.name = "Nice try! Choose a different username";
+    } 
+    else if (data.name === "IJvadeli") {
+      newErrors.name = "You shall not pass!!";
+    }
+    else if (data.name === "ijvadeli") {
+      newErrors.name = "Lowercase won't work either...";
+    }
+    else if (data.name === "Hitury") {
+      newErrors.name = "Filthy name stealer!";
+    }
+    else if (data.name === "hitury") {
+      newErrors.name = "Lowercase, really?";
     }
 
     if (Object.keys(newErrors).length > 0) {
