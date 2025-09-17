@@ -2,24 +2,21 @@ import { useState, useEffect, useRef } from "react";
 import { Input } from "@heroui/input";
 import { Card, CardBody } from "@heroui/card";
 import { Avatar } from "@heroui/avatar";
-import { Spinner } from "@heroui/spinner";
+import { Skeleton } from "@heroui/skeleton";
 import DefaultLayout from "@/layouts/default";
 import { title } from "@/components/primitives";
-import { ScrollToTopButton } from '@/components/scrolltotop';
 
 // Mock "database" of profiles
 const allProfiles = Array.from({ length: 100 }, (_, i) => ({
   id: i + 1,
-  name: `Solaire ${i + 1}`,
-  bio: `This is a description for Solaire ${i + 1}.`,
-  avatar: `/avatars/avatar${(i % 6) + 1}.jpg`, // cycles through 6 avatar files
+  name: `Player ${i + 1}`,
+  bio: `This is a description for Player ${i + 1}.`,
+  avatar: `/avatars/avatar${(i % 6) + 1}.jpg`,
 }));
 
 export default function ProfileSearchPage() {
   const [query, setQuery] = useState("");
-  const [visibleProfiles, setVisibleProfiles] = useState<typeof allProfiles>(
-    []
-  );
+  const [visibleProfiles, setVisibleProfiles] = useState<typeof allProfiles>([]);
   const [hasMore, setHasMore] = useState(true);
   const [loading, setLoading] = useState(false);
   const loaderRef = useRef<HTMLDivElement | null>(null);
@@ -34,12 +31,12 @@ export default function ProfileSearchPage() {
     setHasMore(filteredProfiles.length > 12);
   }, [query]);
 
-  // Fake fetch function (simulates API delay)
+  // Fake fetch with delay
   const fetchMoreProfiles = async () => {
     if (loading) return;
     setLoading(true);
 
-    await new Promise((res) => setTimeout(res, 1000)); // simulate 1s delay
+    await new Promise((res) => setTimeout(res, 1500)); // simulate API delay
 
     setVisibleProfiles((prev) => {
       const next = filteredProfiles.slice(0, prev.length + 12);
@@ -79,10 +76,14 @@ export default function ProfileSearchPage() {
 
         {/* Search Input */}
         <div className="w-full max-w-md">
-          <input
-            className="bg-[#00000055] p-3 pr-10 w-full rounded-xl focus:outline-none"
-            placeholder="Search"
+          <Input
+            type="text"
+            placeholder="Search profiles..."
+            value={query}
             onChange={(e) => setQuery(e.target.value)}
+            className="w-full"
+            radius="md"
+            variant="bordered"
           />
         </div>
 
@@ -109,20 +110,32 @@ export default function ProfileSearchPage() {
               </CardBody>
             </Card>
           ))}
+
+          {/* Skeletons when loading more */}
+          {loading &&
+            Array.from({ length: 3 }).map((_, i) => (
+              <Card
+                key={`skeleton-${i}`}
+                className="bg-[#00000030] rounded-xl shadow-lg"
+              >
+                <CardBody className="flex flex-row items-center gap-4 p-4">
+                  <Skeleton className="rounded-full w-12 h-12" />
+                  <div className="flex flex-col gap-2 w-full">
+                    <Skeleton className="h-4 w-2/3 rounded-md" />
+                    <Skeleton className="h-3 w-1/2 rounded-md" />
+                  </div>
+                </CardBody>
+              </Card>
+            ))}
         </div>
 
         {/* Loader sentinel */}
-        {hasMore && (
-          <div ref={loaderRef} className="py-6 flex justify-center">
-            {loading && <Spinner size="lg" color="warning" />}
-          </div>
-        )}
+        {hasMore && <div ref={loaderRef} className="py-6" />}
 
-        {filteredProfiles.length === 0 && (
+        {filteredProfiles.length === 0 && !loading && (
           <p className="text-gray-400 mt-6">No profiles found.</p>
         )}
       </section>
-      <ScrollToTopButton />
     </DefaultLayout>
   );
 }
