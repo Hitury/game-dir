@@ -5,7 +5,7 @@ export default function DocsPage() {
   return (
     <DefaultLayout>
       <section
-        className="relative flex flex-col items-center justify-center gap-4 py-8 md:py-10"
+        className="relative flex flex-col align-bottom justify-end gap-4 p-8 md:py-10"
         style={{
           backgroundImage: 'url("/sunbros.jpg")',
           backgroundSize: 'cover',
@@ -20,7 +20,7 @@ export default function DocsPage() {
         ></div>
 
         {/* Content */}
-        <div className="relative z-10 inline-block max-w-lg text-left align-bottom">
+        <div className="relative z-10 inline-block max-w-100% text-left align-bottom">
           <h1 className={title()}>Game Info</h1>
           <h2 className={subtitle()}>Creator: IJvadeli - 5 Stars 10/10 gameplay</h2>
           <h1 className={title()}>STER STER STER STER STER</h1> {/*5 sterren :thumbs_up:*/}
