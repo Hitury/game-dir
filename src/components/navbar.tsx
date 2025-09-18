@@ -135,7 +135,7 @@ export const Navbar = () => {
                 color={
                   index === 2
                     ? "foreground"
-                    : index === siteConfig.navMenuItems.length - 5
+                    : index === siteConfig.navMenuItems.length - 1
                       ? "danger"
                       : "foreground"
                 }
