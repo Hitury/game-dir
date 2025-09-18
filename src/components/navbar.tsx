@@ -23,7 +23,6 @@ import {
   HeartFilledIcon,
   SearchIcon,
 } from "@/components/icons";
-import { Logo } from "@/components/icons";
 
 export const Navbar = () => {
   const searchInput = (
@@ -136,7 +135,7 @@ export const Navbar = () => {
                 color={
                   index === 2
                     ? "foreground"
-                    : index === siteConfig.navMenuItems.length - 1
+                    : index === siteConfig.navMenuItems.length - 5
                       ? "danger"
                       : "foreground"
                 }
