@@ -78,7 +78,7 @@ export default function SignupPage() {
   return (
     <AuthLayout>
       <section className=" flex items-center justify-center px-4">
-        <div className="bg-[#2d1f2c] text-white rounded-xl shadow-lg p-8 md:p-10 w-full max-w-md flex flex-col gap-6">
+        <div className="bg-[#2d1f2cc6] text-white rounded-xl shadow-lg p-8 md:p-10 w-full max-w-md flex flex-col gap-6">
           {/* Title */}
           <h2 className="text-center text-2xl font-bold text-[#C59F60]">Create Account</h2>
 
@@ -126,7 +126,7 @@ export default function SignupPage() {
               isRequired
               placeholder="Username"
               label="Username"
-              className="bg-[#2D1F2C] rounded-md"
+              className="bg-transparent rounded-md"
               validate={(v) => (v.length < 3 ? "At least 3 characters" : null)}
             />
             <Input
@@ -134,7 +134,7 @@ export default function SignupPage() {
               type="email"
               placeholder="you@email.com"
               label="Email"
-              className="bg-[#2D1F2C] rounded-md"
+              className="bg-transparent rounded-md placeholder:text-[#C59F60]"
               validate={(v) =>
                 /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) ? null : "Invalid email"
               }
@@ -144,7 +144,7 @@ export default function SignupPage() {
               type="password"
               placeholder="Enter your password"
               label="Password"
-              className="bg-[#2D1F2C] rounded-md"
+              className="bg-transparent rounded-md"
               description="Minimum 8 characters"
               validate={(v) => (v.length < 8 ? "Password too short" : null)}
             />
