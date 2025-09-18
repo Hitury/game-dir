@@ -145,7 +145,7 @@ export default function LoginPage() {
     >
       <AuthLayout>
       <section className="h-[100%] flex items-center justify-center">
-        <div className="flex flex-col bg-[#2d1f2c] rounded-sm p-7 rounded-lg shadow-lg sm:flex-row justify-center overflow-hidden">
+        <div className="flex flex-col bg-[#2d1f2cc6] rounded-sm p-7 rounded-lg shadow-lg sm:flex-row justify-center overflow-hidden">
           {/* <div className="bg-[#DB924B] w-110 h-130 rounded-sm flex items-start justify- self-center text-black p-3"> */}
           <AnimatePresence mode="wait">
             <motion.div
@@ -159,7 +159,7 @@ export default function LoginPage() {
             />
           </AnimatePresence>
           {/* </div> */}
-          <div className="bg-[#2d1f2c] w-110 h-130 flex flex-col items-center justify-center gap-7 p-10 sm:ml-7">
+          <div className="w-110 h-130 flex flex-col items-center justify-center gap-7 p-10 sm:ml-7">
             <h1 className="text-4xl font-bold text-[#C59F60]">Login</h1>
             {emailInput}
             {passInput}
