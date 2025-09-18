@@ -193,7 +193,7 @@ export default function SignupPage() {
           {/* Login Redirect */}
           <p className="text-sm text-gray-400 text-center">
             Already have an account?{" "}
-            <Link href="/login" underline="hover" className="text-[#C59F60]">
+            <Link href="/login" underline="hover" className="text-[#C59F60] text-sm">
               Login
             </Link>
           </p>
