@@ -121,7 +121,7 @@ export default function SignupPage() {
           </div>
 
           {/* Form */}
-          <Form className="flex flex-col gap-4">
+          <Form className="flex flex-col gap-4" validationBehavior="aria">
             <Input
               isRequired
               placeholder="Username"
