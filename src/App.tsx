@@ -3,7 +3,7 @@ import IndexPage from "@/pages/index";
 import ExplorerPage from "@/pages/explorer";
 import ProfilePage from "@/pages/profiles";
 import GameInfo from "@/pages/game-info";
-import ProfileUI from "@/pages/profile-ui";
+import ProfileUI from "@/pages/profile";
 import AboutPage from "@/pages/about";
 import ContactPage from "@/pages/contact";
 import LoginPage from "@/pages/login";
@@ -20,7 +20,7 @@ function App() {
       <Route element={<ExplorerPage />} path="/explorer" />{" "}
       <Route element={<ProfilePage />} path="/profiles" />{" "}
       <Route element={<GameInfo />} path="/game-info" />{" "}
-      <Route element={<ProfileUI />} path="/profile-ui" />{" "}
+      <Route element={<ProfileUI />} path="/profile" />{" "}
       <Route element={<AboutPage />} path="/about" />{" "}
       <Route element={<ContactPage />} path="/contact" />{" "}
       <Route element={<SupportPage />} path="/support" />{" "}
