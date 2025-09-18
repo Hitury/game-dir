@@ -160,7 +160,7 @@ export default function LoginPage() {
           </AnimatePresence>
           {/* </div> */}
           <div className="bg-[#2d1f2c] w-110 h-130 flex flex-col items-center justify-center gap-7 p-10 sm:ml-7">
-            <h1 className="font-semibold text-[40px] text-[#c59f5e]">Login</h1>
+            <h1 className="text-4xl font-bold text-[#C59F60]">Login</h1>
             {emailInput}
             {passInput}
             <Link href="/">
@@ -191,8 +191,8 @@ export default function LoginPage() {
                     />
                   </svg>
                 }
-                className="text-lg font-normal text-default-600 bg-default-100 w-60 h-12"
-                variant="light"
+                className="text-lg font-normal text-black bg-[#B6925A] hover:opacity-90 w-60 h-12"
+                
               >
                 Login
               </Button>

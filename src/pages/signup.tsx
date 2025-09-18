@@ -80,7 +80,7 @@ export default function SignupPage() {
       <section className=" flex items-center justify-center px-4">
         <div className="bg-[#2d1f2c] text-white rounded-xl shadow-lg p-8 md:p-10 w-full max-w-md flex flex-col gap-6">
           {/* Title */}
-          <h2 className="text-center text-2xl font-bold">Create Account</h2>
+          <h2 className="text-center text-2xl font-bold text-[#C59F60]">Create Account</h2>
 
           {/* Social Register */}
           <div className="flex flex-col gap-3 justify-center">
@@ -114,10 +114,10 @@ export default function SignupPage() {
           </div>
 
           {/* Divider */}
-          <div className="flex items-center gap-4">
-            <Divider className="flex-1 bg-gray-700" />
-            <span className="text-gray-400 text-sm">Or</span>
-            <Divider className="flex-1 bg-gray-700" />
+          <div className="flex items-center justify-center gap-4">
+            <Divider className="w-32" />
+                <h3 className="text-[#C59F60]">Or</h3>
+                <Divider className="w-32" />
           </div>
 
           {/* Form */}
@@ -126,7 +126,7 @@ export default function SignupPage() {
               isRequired
               placeholder="Username"
               label="Username"
-              className="bg-[#1f1f1f] rounded-md"
+              className="bg-[#2D1F2C] rounded-md"
               validate={(v) => (v.length < 3 ? "At least 3 characters" : null)}
             />
             <Input
@@ -134,7 +134,7 @@ export default function SignupPage() {
               type="email"
               placeholder="you@email.com"
               label="Email"
-              className="bg-[#1f1f1f] rounded-md"
+              className="bg-[#2D1F2C] rounded-md"
               validate={(v) =>
                 /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) ? null : "Invalid email"
               }
@@ -144,7 +144,7 @@ export default function SignupPage() {
               type="password"
               placeholder="Enter your password"
               label="Password"
-              className="bg-[#1f1f1f] rounded-md"
+              className="bg-[#2D1F2C] rounded-md"
               description="Minimum 8 characters"
               validate={(v) => (v.length < 8 ? "Password too short" : null)}
             />
@@ -153,7 +153,29 @@ export default function SignupPage() {
               onPress={handleClick}
               isLoading={loading}
               type="submit"
-              className="w-full h-12 font-medium bg-[#DB924B] text-black rounded-md hover:opacity-90 transition"
+              spinner={
+                  <svg
+                    className="animate-spin h-5 w-5 text-current"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <circle
+                      className="opacity-25"
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="currentColor"
+                      strokeWidth="4"
+                    />
+                    <path
+                      className="opacity-75"
+                      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                }
+              className="w-full h-12 font-medium bg-[#C59F60] text-black rounded-md hover:opacity-90 transition"
             >
               Sign Up
             </Button>
@@ -162,7 +184,7 @@ export default function SignupPage() {
           {/* Login Redirect */}
           <p className="text-sm text-gray-400 text-center">
             Already have an account?{" "}
-            <Link href="/login" underline="hover" className="text-[#DB924B]">
+            <Link href="/login" underline="hover" className="text-[#C59F60]">
               Login
             </Link>
           </p>
