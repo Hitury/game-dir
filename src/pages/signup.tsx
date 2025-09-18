@@ -77,7 +77,7 @@ export default function SignupPage() {
 
   return (
     <AuthLayout>
-      <section className=" flex items-center justify-center px-4">
+      <section className="flex items-center justify-center px-4">
         <div className="bg-[#2d1f2cc6] text-white rounded-xl shadow-lg p-8 md:p-10 w-full max-w-md flex flex-col gap-6">
           {/* Title */}
           <h2 className="text-center text-2xl font-bold text-[#C59F60]">Create Account</h2>
