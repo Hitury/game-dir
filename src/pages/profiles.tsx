@@ -116,7 +116,7 @@ export default function ProfileSearchPage() {
           {visibleProfiles.map((profile) => (
             <Card
               key={profile.id}
-              className="bg-[#00000050] hover:bg-[#00000070] transition rounded-xl shadow-lg"
+              className="bg-[#00000050] hover:bg-[#00000070] transition rounded-xl shadow-lg cursor-pointer"
             >
               <CardBody className="flex flex-row items-center gap-4 p-4">
                 <Avatar

@@ -65,7 +65,7 @@ export default function GameShowcase() {
   return (
     <div className="flex flex-col items-center justify-center text-white p-4 sm:p-6">
       {/* Top Sellers Title */}
-      <h2 className="text-lg sm:text-xl font-bold text-[#DB924B] mb-4 self-start">
+      <h2 className="text-lg sm:text-xl font-bold text-[#C59F60] mb-4 self-start">
         Top Sellers
       </h2>
 
@@ -73,13 +73,13 @@ export default function GameShowcase() {
         {/* Left Arrow */}
         <button
           onClick={prevSlide}
-          className="p-2 hover:bg-[#DB924B] bg-[#db934b9b] transition rounded-full shrink-0"
+          className="p-2 hover:bg-[#C59F60] bg-[#c59e608a] transition rounded-full shrink-0"
         >
           <ChevronLeft className="text-black" />
         </button>
 
         {/* Main Content */}
-        <div className="relative flex flex-col md:flex-row bg-[#00000050] shadow-lg rounded-xl overflow-hidden w-full min-h-[300px] sm:min-h-[350px] md:min-h-[400px]">
+        <div className="relative flex flex-col md:flex-row bg-[#00000050] rounded-xl overflow-hidden w-full h-[400px] border-b-8 border-[#160F15] shadow-lg">
           <AnimatePresence mode="wait" custom={direction}>
             <motion.div
               key={currentIndex}
@@ -91,7 +91,7 @@ export default function GameShowcase() {
               transition={{ duration: 0.5, ease: "easeInOut" }}
             >
               {/* Image Section */}
-              <div className="relative w-full md:w-2/3 h-48 sm:h-64 md:h-auto flex items-center justify-center bg-black">
+              <div className="relative w-full md:w-2/3 h-1/2 md:h-full bg-black">
                 <img
                   src={games[currentIndex].image}
                   alt={games[currentIndex].title}
@@ -102,7 +102,7 @@ export default function GameShowcase() {
               {/* Description Section */}
               <div className="w-full md:w-1/3 bg-[#00000050] flex flex-col justify-between p-4 sm:p-6">
                 <div>
-                  <h3 className="text-lg sm:text-xl font-semibold mb-2">
+                  <h3 className="text-lg sm:text-xl font-semibold mb-2 truncate">
                     {games[currentIndex].title}
                   </h3>
                   <p className="text-[#d4a373] mb-2">
@@ -112,7 +112,7 @@ export default function GameShowcase() {
                     {games[currentIndex].description}
                   </p>
                 </div>
-                <Button className="bg-[#DB924B] text-black hover:bg-[#b88a5c] mt-4 w-fit">
+                <Button className="bg-[#C59F60] text-black hover:bg-[#b88a5c] mt-4 w-fit">
                   Buy Now
                 </Button>
               </div>
@@ -123,7 +123,7 @@ export default function GameShowcase() {
         {/* Right Arrow */}
         <button
           onClick={nextSlide}
-          className="p-2 hover:bg-[#DB924B] bg-[#db934b9b] transition rounded-full shrink-0"
+          className="p-2 hover:bg-[#C59F60] bg-[#c59e608a] transition rounded-full shrink-0"
         >
           <ChevronRight className="text-black" />
         </button>
@@ -142,8 +142,8 @@ export default function GameShowcase() {
             }}
             className={`w-14 h-14 sm:w-16 sm:h-16 object-cover rounded-md border cursor-pointer transition ${
               currentIndex === i
-                ? "border-[#d4a373]"
-                : "border-gray-700 hover:border-[#d4a373]"
+                ? "border-[#C59F60]"
+                : "border-gray-700 hover:border-[#C59F60]"
             }`}
           />
         ))}

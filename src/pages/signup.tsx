@@ -3,92 +3,16 @@ import { Link } from "@heroui/link";
 import { Button } from "@heroui/button";
 import { Input } from "@heroui/input";
 import { Divider } from "@heroui/divider";
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
 import { Form } from "@heroui/form";
 
-const images = ["solaireandsiegmeyer.jpg", "sunbros.jpg"];
-
 export default function SignupPage() {
-  const emailInput = (
-    <Input
-      isRequired
-      className="max-w-xl"
-      defaultValue=""
-      placeholder="solaire@cinderwatch.com"
-      label="Email"
-      type="email"
-      validate={(value) => {
-        if (!value) {
-          return "Email is required";
-        }
+  const [loading, setLoading] = useState(false);
 
-        // simple regex for email validation
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-        if (!emailRegex.test(value)) {
-          return "Please enter a valid email address";
-        }
-
-        return null;
-      }}
-    />
-  );
-
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  // Auto slide every 5 seconds
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % images.length);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, []);
-
-  const passInput = (
-    <Input
-      isRequired
-      minLength={8}
-      className="max-w-xl"
-      defaultValue=""
-      placeholder="Enter your password"
-      label="Password"
-      type="password"
-      validate={(value) => {
-        if (!value) {
-          return "Password is required";
-        }
-
-        // simple regex for email validation
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-        if (!emailRegex.test(value)) {
-          return "Please enter a valid email address";
-        }
-
-        return null;
-      }}
-    />
-  );
-
-  const userInput = (
-    <Input
-      isRequired
-      minLength={3}
-      className="max-w-xl"
-      defaultValue=""
-      placeholder="Enter your username"
-      label="Username"
-      type="text"
-      validate={(value) => {
-        if (value.length < 3) {
-          return "Username must be at least 3 characters long";
-        }
-
-        return value === "admin" ? "Nice try!" : null;
-      }}
-    />
-  );
+  const handleClick = () => {
+    setLoading(true);
+    setTimeout(() => setLoading(false), 2000);
+  };
 
   const discordIcon = (
     <svg
@@ -151,114 +75,97 @@ export default function SignupPage() {
     </svg>
   );
 
-  const [loading, setLoading] = useState(false);
-
-  const handleClick = () => {
-    setLoading(true);
-
-    // Simulate async action (e.g. login, API call)
-    setTimeout(() => {
-      setLoading(false);
-      // redirect, show toast, etc...
-    }, 2000);
-  };
-
   return (
     <AuthLayout>
-      <section className="h-[100%] flex items-center justify-center">
-        <div className="flex flex-col bg-[#2d1f2c] rounded-sm py-18 pb-20 px-12 mb-10 rounded-xl shadow-lg sm:flex-row justify-center items-center overflow-hidden ">
-          <div className="bg-[#2d1f2c] w-110 h-130 flex flex-col items-center justify-center gap-6">
-            <div className="flex flex-col justify-center items-center gap-4 w-[100%] mb-5">
-              <h2>Register with:</h2>
-              <div>
-                <div className="flex flex-row gap-4 flex-1 mb-4">
-                  <Button
-                    isExternal
-                    as={Link}
-                    className="text-sm font-normal text-default-600 bg-default-100 w-10 h-12"
-                    variant="light"
-                  >
-                    {discordIcon}
-                  </Button>
-                  <Button
-                    isExternal
-                    as={Link}
-                    className="text-sm font-normal text-default-600 bg-default-100 w-10 h-12"
-                    variant="light"
-                  >
-                    {githubIcon}
-                  </Button>
-                  <Button
-                    isExternal
-                    as={Link}
-                    className="text-sm text-default-600 bg-default-100 w-10 h-12"
-                    variant="light"
-                  >
-                    {googleIcon}
-                  </Button>
-                </div>
-              </div>
-              <div className="flex flex-row gap-5 items-center justify-center w-[43%]">
-                <Divider className="w-full"/>
-                <h3 className="mb-1">Or</h3>
-                <Divider className="w-full" />
-              </div>
-            </div>
-            <Form
-              className="flex flex-col w-[100%] gap-5 justify-center items-center"
-              validationBehavior="aria"
-            >
-              {userInput}
-              {emailInput}
-              {passInput}
+      <section className="h-screen flex items-center justify-center px-4">
+        <div className="bg-[#2d1f2c] text-white rounded-xl shadow-lg p-8 md:p-10 w-full max-w-md flex flex-col gap-6">
+          {/* Title */}
+          <h2 className="text-center text-2xl font-bold">Create Account</h2>
 
-              <Link>
+          {/* Social Register */}
+          <div className="flex flex-col gap-3 justify-center">
+            <h3 className="text-center text-sm">Register with:</h3>
+            <div className="flex flex-row gap-4 flex-1 mb-4 justify-center">
                 <Button
                   isExternal
                   as={Link}
-                  onPress={handleClick}
-                  isLoading={loading}
-                  type="submit"
-                  spinner={
-                    <svg
-                      className="animate-spin h-5 w-5 text-current"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <circle
-                        className="opacity-25"
-                        cx="12"
-                        cy="12"
-                        r="10"
-                        stroke="currentColor"
-                        strokeWidth="4"
-                      />
-                      <path
-                        className="opacity-75"
-                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                        fill="currentColor"
-                      />
-                    </svg>
-                  }
-                  className="text-lg font-normal text-default-600 bg-default-100 w-60 h-12"
+                  className="text-sm font-normal text-default-600 bg-default-100 w-10 h-12"
                   variant="light"
                 >
-                  Sign Up
+                  {discordIcon}
                 </Button>
-              </Link>
-            </Form>
-            <div className="flex flex-col justify-center items-center">
-              <Link
-                href="/login"
-                size="md"
-                className="bottom-3 transition"
-                underline="hover"
-              >
-                Login
-              </Link>
-            </div>
+                <Button
+                  isExternal
+                  as={Link}
+                  className="text-sm font-normal text-default-600 bg-default-100 w-10 h-12"
+                  variant="light"
+                >
+                  {githubIcon}
+                </Button>
+                <Button
+                  isExternal
+                  as={Link}
+                  className="text-sm text-default-600 bg-default-100 w-10 h-12"
+                  variant="light"
+                >
+                  {googleIcon}
+                </Button>
+              </div>
           </div>
+
+          {/* Divider */}
+          <div className="flex items-center gap-4">
+            <Divider className="flex-1 bg-gray-700" />
+            <span className="text-gray-400 text-sm">Or</span>
+            <Divider className="flex-1 bg-gray-700" />
+          </div>
+
+          {/* Form */}
+          <Form className="flex flex-col gap-4">
+            <Input
+              isRequired
+              placeholder="Username"
+              label="Username"
+              className="bg-[#1f1f1f] rounded-md"
+              validate={(v) => (v.length < 3 ? "At least 3 characters" : null)}
+            />
+            <Input
+              isRequired
+              type="email"
+              placeholder="you@email.com"
+              label="Email"
+              className="bg-[#1f1f1f] rounded-md"
+              validate={(v) =>
+                /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) ? null : "Invalid email"
+              }
+            />
+            <Input
+              isRequired
+              type="password"
+              placeholder="Enter your password"
+              label="Password"
+              className="bg-[#1f1f1f] rounded-md"
+              description="Minimum 8 characters"
+              validate={(v) => (v.length < 8 ? "Password too short" : null)}
+            />
+
+            <Button
+              onPress={handleClick}
+              isLoading={loading}
+              type="submit"
+              className="w-full h-12 font-medium bg-[#DB924B] text-black rounded-md hover:opacity-90 transition"
+            >
+              Sign Up
+            </Button>
+          </Form>
+
+          {/* Login Redirect */}
+          <p className="text-sm text-gray-400 text-center">
+            Already have an account?{" "}
+            <Link href="/login" underline="hover" className="text-[#DB924B]">
+              Login
+            </Link>
+          </p>
         </div>
       </section>
     </AuthLayout>
