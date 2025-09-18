@@ -203,14 +203,18 @@ export default function LoginPage() {
                 <h3 className="">Or</h3>
                 <Divider className="w-32" />
               </div>
-              <Link
-                onClick={handleGoSignup}
-                size="md"
-                className="bottom-6 transition"
-                underline="hover"
-              >
-                Sign Up
-              </Link>
+              <p className="text-sm text-gray-400 text-center mb-3 pb-5 transition">
+                  Don't have an account yet?{" "}
+                  <Link
+                    href="/signup"
+                    underline="hover"
+                    onClick={handleGoSignup}
+                    className="text-[#C59F60] text-sm"
+                  >
+                    Sign Up
+                  </Link>
+                </p>
+              
               <div className="flex flex-row gap-4 flex-1 mb-4">
                 <Button
                   isExternal

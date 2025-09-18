@@ -36,7 +36,6 @@ export default function IndexPage() {
 
         <div className="flex gap-3">
           <Link
-            isExternal
             className={buttonStyles({
               color: "primary",
               radius: "md",
