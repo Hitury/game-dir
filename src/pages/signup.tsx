@@ -126,6 +126,9 @@ export default function SignupPage() {
               isRequired
               placeholder="Username"
               label="Username"
+              classNames={{
+                input: "placeholder:text-[#C59F60]",
+              }}
               className="bg-transparent rounded-md"
               validate={(v) => (v.length < 3 ? "At least 3 characters" : null)}
             />
@@ -134,6 +137,9 @@ export default function SignupPage() {
               type="email"
               placeholder="you@email.com"
               label="Email"
+              classNames={{
+                input: "placeholder:text-[#C59F60]",
+              }}
               className="bg-transparent rounded-md placeholder:text-[#C59F60]"
               validate={(v) =>
                 /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) ? null : "Invalid email"
@@ -145,6 +151,9 @@ export default function SignupPage() {
               placeholder="Enter your password"
               label="Password"
               className="bg-transparent rounded-md"
+              classNames={{
+                input: "placeholder:text-[#C59F60]",
+              }}
               description="Minimum 8 characters"
               validate={(v) => (v.length < 8 ? "Password too short" : null)}
             />
