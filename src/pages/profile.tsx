@@ -6,10 +6,23 @@ import { Button } from "@heroui/button";
 import { Tabs, Tab } from "@heroui/tabs";
 import { Skeleton } from "@heroui/skeleton";
 import { useEffect, useState } from "react";
+import {
+  Modal,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+} from "@heroui/modal";
+import { useDisclosure } from "@heroui/react"; // manages open/close
 import Footer from "@/components/footer";
 
 export default function ProfilePage() {
   const [loading, setLoading] = useState(true);
+  const { isOpen, onOpen, onClose } = useDisclosure(); // modal state
+
+  const handleConfirmBlock = () => {
+    console.log("User blocked!");
+  };
 
   useEffect(() => {
     // Simulate loading delay (e.g. fetching user profile data)
@@ -62,12 +75,53 @@ export default function ProfilePage() {
                     <Button color="primary" variant="solid">
                       Add Friend
                     </Button>
-                    <Button color="danger" variant="ghost">
+                    <Button color="danger" variant="ghost" onPress={onOpen}>
                       Block
                     </Button>
                   </>
                 )}
               </div>
+              <Modal
+                isOpen={isOpen}
+                onClose={onClose}
+                backdrop="blur"
+                classNames={{
+                  backdrop: "bg-black/70 backdrop-blur-sm",
+                }}
+              >
+                <ModalContent>
+                  {(onClose) => (
+                    <>
+                      <ModalHeader className="text-xl font-bold text-red-500">
+                        Confirm Block
+                      </ModalHeader>
+                      <ModalBody>
+                        <p>
+                          Are you sure you want to block this user? They will no
+                          longer be able to interact with you.
+                        </p>
+                      </ModalBody>
+                      <ModalFooter>
+                        <Button
+                          color="default"
+                          variant="light"
+                          onPress={() => {
+                            onClose();
+                          }}
+                        >
+                          Cancel
+                        </Button>
+                        <Button color="danger" onPress={() => {
+                          handleConfirmBlock();
+                          onClose();
+                        }}>
+                          Yes, Block
+                        </Button>
+                      </ModalFooter>
+                    </>
+                  )}
+                </ModalContent>
+              </Modal>
             </div>
           </div>
 
@@ -103,7 +157,11 @@ export default function ProfilePage() {
             <Skeleton className="h-4 w-2/3 rounded" />
           </div>
         ) : (
-          <Tabs aria-label="Profile Sections" color="primary" variant="underlined">
+          <Tabs
+            aria-label="Profile Sections"
+            color="primary"
+            variant="underlined"
+          >
             <Tab key="about" title="About">
               <div className="mt-6 text-gray-500">
                 This user hasn't written any information about themselves...
