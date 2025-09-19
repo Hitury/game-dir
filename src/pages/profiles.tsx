@@ -6,6 +6,7 @@ import { Skeleton } from "@heroui/skeleton";
 import DefaultLayout from "@/layouts/default";
 import { title } from "@/components/primitives";
 import { ScrollToTopButton } from "@/components/scrolltotop";
+import Footer from "@/components/footer";
 
 // Mock "database" of profiles
 const allProfiles = Array.from({ length: 100 }, (_, i) => ({
@@ -161,6 +162,7 @@ export default function ProfileSearchPage() {
         )}
       </section>
       <ScrollToTopButton />
+      <Footer />
     </DefaultLayout>
   );
 }

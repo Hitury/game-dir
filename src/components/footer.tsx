@@ -8,7 +8,7 @@ import { siteConfig } from "@/config/site";
 
 export default function Footer() {
     return (
-        <footer className="w-full bg-[#00000050] text-[#969696] rounded-t-medium py-3">
+        <footer className="w-full bg-[#00000050] text-[#969696] rounded-t-medium py-3 mt-[100px]">
             <div className="footer-content text-center">
                 <p className="font-bold text-inherit py-[10px]">CINDERWATCH</p>
                     <a href="/about" className="mx-[10px]">About</a>

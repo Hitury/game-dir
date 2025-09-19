@@ -8,6 +8,7 @@ import Carousel from "@/components/carousel-explorer";
 import CarouselTop from "@/components/carousel-top";
 import DefaultLayout from "@/layouts/default";
 import { ScrollToTopButton } from '@/components/scrolltotop';
+import Footer from "@/components/footer";
 
 export default function IndexPage() {
   return (
@@ -61,6 +62,7 @@ export default function IndexPage() {
         <CarouselTop />
       </div>
       <ScrollToTopButton />
+      <Footer />
     </DefaultLayout>
     
   );

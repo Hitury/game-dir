@@ -1,6 +1,7 @@
 import { subtitle, title } from "@/components/primitives";
 import DefaultLayout from "@/layouts/default";
 import { Divider } from "@heroui/divider";
+import Footer from "@/components/footer";
 
 export default function DocsPage() {
   return (
@@ -31,6 +32,7 @@ export default function DocsPage() {
           </p>
         </div>
       </section>
+      <Footer />
     </DefaultLayout>
   );
 }

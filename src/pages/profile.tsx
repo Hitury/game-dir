@@ -6,6 +6,7 @@ import { Button } from "@heroui/button";
 import { Tabs, Tab } from "@heroui/tabs";
 import { Skeleton } from "@heroui/skeleton";
 import { useEffect, useState } from "react";
+import Footer from "@/components/footer";
 
 export default function ProfilePage() {
   const [loading, setLoading] = useState(true);
@@ -125,6 +126,7 @@ export default function ProfilePage() {
       </div>
 
       <ScrollToTopButton />
+      <Footer />
     </DefaultLayout>
   );
 }
