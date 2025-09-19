@@ -40,7 +40,7 @@ export default function ProfilePage() {
           <div className="flex flex-wrap justify-center md:justify-end gap-6 text-gray-100">
             <div className="text-center">
               <p className="text-2xl font-bold">0</p>
-              <p className="text-sm opacity-80">Friends</p>
+              <p className="text-sm opacity-80">Mutual Hollows</p>
             </div>
             <div className="text-center">
               <p className="text-2xl font-bold">0</p>
