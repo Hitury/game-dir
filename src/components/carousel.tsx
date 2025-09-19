@@ -1,5 +1,4 @@
 import { useRef } from "react";
-import { title, subtitle } from "@/components/primitives";
 
 const items = [ // Praise the Sun!
   { id: 1, title: "Placeholder", image: "/praisethesun.jpg" },
