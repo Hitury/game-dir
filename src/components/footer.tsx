@@ -8,7 +8,7 @@ import { siteConfig } from "@/config/site";
 
 export default function Footer() {
     return (
-        <footer className="w-full bg-[#00000050] text-[#969696] rounded-t-medium py-3 mt-[100px]">
+        <footer className="w-full bg-[#00000050] rounded-t-medium py-3 mt-[100px]">
             <div className="footer-content text-center">
                 <p className="font-bold text-inherit py-[10px]">CINDERWATCH</p>
                     <a href="/about" className="mx-[10px]">About</a>
@@ -17,13 +17,13 @@ export default function Footer() {
                     <br/>
                     <div className="my-[5px] mt-[10px]">
                     <Link isExternal href={siteConfig.links.twitter} title="Twitter">
-                        <TwitterIcon className="text-default-500 mx-[5px]" />
+                        <TwitterIcon className="text-white mx-[5px]" />
                     </Link>
                     <Link isExternal href={siteConfig.links.discord} title="Discord">
-                        <DiscordIcon className="text-default-500 mx-[5px]" />
+                        <DiscordIcon className="text-white mx-[5px]" />
                     </Link>
                     <Link isExternal href={siteConfig.links.github} title="GitHub">
-                        <GithubIcon className="text-default-500 mx-[5px]" />
+                        <GithubIcon className="text-white mx-[5px]" />
                     </Link>
                     </div>
                 <p className="">© 2025 Cinder Watch. All rights reserved.</p>
