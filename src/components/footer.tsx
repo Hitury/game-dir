@@ -6,6 +6,8 @@ import {
 } from "@/components/icons";
 import { siteConfig } from "@/config/site";
 
+const Year = new Date().getFullYear(); {/* Easy auto updating year function */ }
+
 export default function Footer() {
     return (
         <footer className="w-full bg-[#00000050] rounded-t-medium py-3 mt-[100px]">
@@ -26,7 +28,7 @@ export default function Footer() {
                         <GithubIcon className="text-white mx-[5px]" />
                     </Link>
                     </div>
-                <p className="">© 2025 Cinder Watch. All rights reserved.</p>
+                <p className="">© {Year} Cinder Watch. All rights reserved.</p>
             </div>
         </footer>
     )
