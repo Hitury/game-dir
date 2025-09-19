@@ -6,15 +6,9 @@ import { Button } from "@heroui/button";
 import { Tabs, Tab } from "@heroui/tabs";
 import { Skeleton } from "@heroui/skeleton";
 import { useEffect, useState } from "react";
-import {
-  Modal,
-  ModalContent,
-  ModalHeader,
-  ModalBody,
-  ModalFooter,
-} from "@heroui/modal";
 import { useDisclosure } from "@heroui/react"; // manages open/close
 import Footer from "@/components/footer";
+import ConfirmBlockModal from "@/components/block-modal.tsx"
 
 export default function ProfilePage() {
   const [loading, setLoading] = useState(true);
@@ -81,47 +75,11 @@ export default function ProfilePage() {
                   </>
                 )}
               </div>
-              <Modal
-                isOpen={isOpen}
-                onClose={onClose}
-                backdrop="blur"
-                classNames={{
-                  backdrop: "bg-black/70 backdrop-blur-sm",
-                }}
-              >
-                <ModalContent>
-                  {(onClose) => (
-                    <>
-                      <ModalHeader className="text-xl font-bold text-red-500">
-                        Confirm Block
-                      </ModalHeader>
-                      <ModalBody>
-                        <p>
-                          Are you sure you want to block this user? They will no
-                          longer be able to interact with you.
-                        </p>
-                      </ModalBody>
-                      <ModalFooter>
-                        <Button
-                          color="default"
-                          variant="light"
-                          onPress={() => {
-                            onClose();
-                          }}
-                        >
-                          Cancel
-                        </Button>
-                        <Button color="danger" onPress={() => {
-                          handleConfirmBlock();
-                          onClose();
-                        }}>
-                          Yes, Block
-                        </Button>
-                      </ModalFooter>
-                    </>
-                  )}
-                </ModalContent>
-              </Modal>
+              <ConfirmBlockModal
+        isOpen={isOpen}
+        onClose={onClose}
+        onConfirm={handleConfirmBlock}
+      />
             </div>
           </div>
 
