@@ -1,6 +1,5 @@
 import { subtitle, title } from "@/components/primitives";
 import DefaultLayout from "@/layouts/default";
-import Input from "@/components/form";
 import { Divider } from "@heroui/divider";
 import Footer from "@/components/footer";
 
@@ -29,7 +28,6 @@ export default function DocsPage() {
           </p>
         </div>
       </section>
-      <Input />
       <Footer />
     </DefaultLayout>
   );
