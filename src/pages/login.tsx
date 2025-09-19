@@ -1,8 +1,8 @@
-import { title } from "@/components/primitives";
+// import { title } from "@/components/primitives";
 import AuthLayout from "@/layouts/auth";
 import { Link } from "@heroui/link";
 import { Button } from "@heroui/button";
-import { Kbd } from "@heroui/kbd";
+// import { Kbd } from "@heroui/kbd";
 import { Input } from "@heroui/input";
 import { Divider } from "@heroui/divider";
 import { useState, useEffect } from "react";
@@ -145,7 +145,7 @@ export default function LoginPage() {
     >
       <AuthLayout>
       <section className="h-[100%] flex items-center justify-center">
-        <div className="flex flex-col bg-[#2d1f2cc6] rounded-sm p-7 rounded-lg shadow-lg sm:flex-row justify-center overflow-hidden">
+        <div className="flex flex-col bg-[#2d1f2cc6] p-7 rounded-lg shadow-lg sm:flex-row justify-center overflow-hidden">
           {/* <div className="bg-[#DB924B] w-110 h-130 rounded-sm flex items-start justify- self-center text-black p-3"> */}
           <AnimatePresence mode="wait">
             <motion.div
