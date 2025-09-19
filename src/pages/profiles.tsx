@@ -6,7 +6,7 @@ import { Skeleton } from "@heroui/skeleton";
 import DefaultLayout from "@/layouts/default";
 import { title } from "@/components/primitives";
 import { ScrollToTopButton } from "@/components/scrolltotop";
-import Footer from "@/components/footer";
+import { useNavigate } from "react-router-dom";
 
 // Mock "database" of profiles
 const allProfiles = Array.from({ length: 100 }, (_, i) => ({
@@ -24,6 +24,7 @@ export default function ProfileSearchPage() {
   const [hasMore, setHasMore] = useState(true);
   const [loading, setLoading] = useState(false);
   const loaderRef = useRef<HTMLDivElement | null>(null);
+  const navigate = useNavigate();
 
   const searchIcon = (
     <svg
@@ -68,6 +69,10 @@ export default function ProfileSearchPage() {
     });
 
     setLoading(false);
+  };
+
+  const handleClick = (id: number) => {
+      navigate(`/profile#${id}`);
   };
 
   // Infinite scroll
@@ -116,7 +121,9 @@ export default function ProfileSearchPage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-6xl mt-6">
           {visibleProfiles.map((profile) => (
             <Card
+              isPressable
               key={profile.id}
+              onPress={() => handleClick(profile.id)}
               className="bg-[#00000050] hover:bg-[#00000070] transition rounded-xl shadow-lg cursor-pointer"
             >
               <CardBody className="flex flex-row items-center gap-4 p-4">
@@ -162,7 +169,6 @@ export default function ProfileSearchPage() {
         )}
       </section>
       <ScrollToTopButton />
-      <Footer />
     </DefaultLayout>
   );
 }
