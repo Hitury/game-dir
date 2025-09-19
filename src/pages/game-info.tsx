@@ -38,7 +38,7 @@ export default function DocsPage() {
         </div>
       </section>
       <Divider className="bg-[#DB924B] h-0.5" />
-      <TabFunc />
+      <TabFunc /> {/* Tabs Component */}
       <ScrollToTopButton />
     </DefaultLayout>
   );
