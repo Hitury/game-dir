@@ -3,7 +3,6 @@ import DefaultLayout from "@/layouts/default";
 import { Divider } from "@heroui/divider";
 import { Card, CardHeader, CardBody } from "@heroui/card";
 import NumberInput from "@/components/numberinput";
-import Footer from "@/components/footer";
 
 export default function DocsPage() {
   return (
