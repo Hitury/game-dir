@@ -10,9 +10,9 @@ const Year = new Date().getFullYear(); {/* Easy auto updating year function */ }
 
 export default function Footer() {
     return (
-        <footer className="w-full bg-[#ffffff5f] rounded-t-medium py-3">
+        <footer className="w-full bg-[#00000040] rounded-t-medium py-3">
             <div className="footer-content text-center items-center flex flex-col">
-                <img src="/CinderWatchLogo.png" className="h-[75px]" />
+                <img src="/WhiteLogoCW.png" className="h-[75px]" />
                     <br/>
                         <div className="flex flex-row">
                             <a href="/about" className="mx-[10px]">About</a>
