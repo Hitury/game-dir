@@ -5,11 +5,9 @@ import { Input } from "@heroui/input";
 import { Divider } from "@heroui/divider";
 import { useState } from "react";
 import { Form } from "@heroui/form";
-import { useNavigate } from "react-router-dom";
 
 export default function SignupPage() {
   const [loading, setLoading] = useState(false);
-  const navigate = useNavigate();
   const handleClick = () => {
     setLoading(true);
     setTimeout(() => setLoading(false), 2000);

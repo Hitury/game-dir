@@ -7,7 +7,6 @@ import { Tabs, Tab } from "@heroui/tabs";
 import { Skeleton } from "@heroui/skeleton";
 import { useEffect, useState } from "react";
 import { useDisclosure } from "@heroui/react"; // manages open/close
-import Footer from "@/components/footer";
 import ConfirmBlockModal from "@/components/block-modal.tsx"
 
 export default function ProfilePage() {
