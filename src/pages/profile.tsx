@@ -69,7 +69,7 @@ export default function ProfilePage() {
                     <Button color="primary" variant="solid">
                       Add Friend
                     </Button>
-                    <Button color="danger" variant="ghost" onPress={onOpen}>
+                    <Button color="danger" variant="ghost" onPress={onOpen} >
                       Block
                     </Button>
                   </>
@@ -142,7 +142,6 @@ export default function ProfilePage() {
       </div>
 
       <ScrollToTopButton />
-      <Footer />
     </DefaultLayout>
   );
 }

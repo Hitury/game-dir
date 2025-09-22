@@ -1,18 +1,12 @@
 import { Link } from "@heroui/link";
-
-import { siteConfig } from "@/config/site";
 import { title, subtitle } from "@/components/primitives";
 import Carousel from "@/components/carousel";
-import CarouselTop from "@/components/carousel-top";
-import DefaultLayout from "@/layouts/default";
 import { ScrollToTopButton } from '@/components/scrolltotop';
 import Footer from "@/components/footer";
 import { Navbar } from "@/components/navbar";
 import  FeaturedCarousel from "@/components/featured.tsx"
 import { Button } from "@heroui/button";
-import { Card, CardBody } from "@heroui/card";
 import { Avatar } from "@heroui/avatar";
-
 import GameShowcase from "@/components/carousel-top"; // your existing carousel
 
 export default function HomePage() {
@@ -115,7 +109,6 @@ export default function HomePage() {
         <h2 className="text-2xl font-bold text-gold-500 mb-6">Top Sellers</h2>
         <GameShowcase />
       </section>
-
       <Footer />
       <ScrollToTopButton />
     </main>

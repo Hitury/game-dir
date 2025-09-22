@@ -61,7 +61,6 @@ export default function DocsPage() {
           </Card>
         </div>
       </section>
-      <Footer />
     </DefaultLayout>
   );
 }

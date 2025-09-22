@@ -82,7 +82,6 @@ export default function ExplorerPage() {
                 <Carousel />
             </section>
             <ScrollToTopButton />
-            <Footer />
         </DefaultLayout>
     );
 }
