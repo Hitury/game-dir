@@ -32,7 +32,6 @@ export default function DocsPage() {
           </p>
         </div>
       </section>
-      <Footer />
     </DefaultLayout>
   );
 }
