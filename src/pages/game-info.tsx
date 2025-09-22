@@ -8,7 +8,7 @@ import TabFunc from "@/components/tabs";
 
 export default function DocsPage() {
   return (
-    <main className="flex flex-col bg-background text-foreground">
+    <main className="flex flex-col bg-background text-foreground px-10">
       <Navbar />
 
       {/* GAME HEADER - now the top area */}
@@ -61,7 +61,7 @@ export default function DocsPage() {
             className="w-full h-64 object-cover rounded-lg mb-4"
           />
           <p className="text-gray-300 text-sm">
-            Explore vast worlds, fight bosses, and uncover mysteries. Illuvium
+            Explore vast worlds, fight bosses, and uncover mysteries. Elden Reign
             offers deep RPG mechanics with stunning visuals and engaging combat.
           </p>
         </div>
