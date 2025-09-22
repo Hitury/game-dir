@@ -3,7 +3,6 @@ import DefaultLayout from "@/layouts/default";
 import { Divider } from "@heroui/divider";
 import Carousel from "@/components/carousel-explorer";
 import { ScrollToTopButton } from '@/components/scrolltotop';
-import Footer from "@/components/footer"; // Adjust the path as needed
 
 // Function to handle smooth scrolling to a specific section
 const scrollToSection = (sectionId: string) => {

@@ -1,4 +1,3 @@
-import { Link } from "@heroui/link";
 import Footer from "@/components/footer"
 import { Navbar } from "@/components/navbar";
 
