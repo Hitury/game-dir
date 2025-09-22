@@ -3,7 +3,6 @@ import DefaultLayout from "@/layouts/default";
 import { Divider } from "@heroui/divider";
 import { ScrollToTopButton } from '@/components/scrolltotop';
 import TabFunc from "@/components/tabs";
-import Footer from "@/components/footer";
 
 export default function DocsPage() {
   return (
