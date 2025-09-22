@@ -27,8 +27,8 @@ export default function TabFunc() {
         </Tab>
 
         <Tab key="reviews" title="Reviews">
-          <Card className="bg-black/40 border border-[#DB924B]/20">
-            <CardBody className="text-gray-300 text-sm">
+          <Card className="bg-black/10 border border-[#DB924B]/20">
+            <CardBody className="text-gray-400 text-sm">
               DIOOOOO — Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
               tempor incididunt ut labore et dolore magna aliqua...
             </CardBody>
@@ -36,24 +36,24 @@ export default function TabFunc() {
         </Tab>
 
         <Tab key="socials" title="Socials">
-          <Card className="bg-black/40 border border-[#DB924B]/20">
-            <CardBody className="text-gray-300 text-sm">
+          <Card className="bg-black/10 border border-[#DB924B]/20">
+            <CardBody className="text-gray-400 text-sm">
               JoJo's Bizarre Adventure — Lorem ipsum dolor sit amet, consectetur adipiscing elit...
             </CardBody>
           </Card>
         </Tab>
 
         <Tab key="ouropinion" title="Our Opinion">
-          <Card className="bg-black/40 border border-[#DB924B]/20">
-            <CardBody className="text-gray-300 text-sm">
+          <Card className="bg-black/10 border border-[#DB924B]/20">
+            <CardBody className="text-gray-400 text-sm">
               HAMON OVERDRIVEOOOOO — Lorem ipsum dolor sit amet, consectetur adipiscing elit...
             </CardBody>
           </Card>
         </Tab>
 
         <Tab key="pricing" title="Pricing">
-          <Card className="bg-black/40 border border-[#DB924B]/20">
-            <CardBody className="text-gray-300 text-sm">
+          <Card className="bg-black/10 border border-[#DB924B]/20">
+            <CardBody className="text-gray-400 text-sm">
               Hallo Hitury — Lorem ipsum dolor sit amet, consectetur adipiscing elit...
             </CardBody>
           </Card>
