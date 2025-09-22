@@ -5,10 +5,11 @@ import { Input } from "@heroui/input";
 import { Divider } from "@heroui/divider";
 import { useState } from "react";
 import { Form } from "@heroui/form";
+import { useNavigate } from "react-router-dom";
 
 export default function SignupPage() {
   const [loading, setLoading] = useState(false);
-
+  const navigate = useNavigate();
   const handleClick = () => {
     setLoading(true);
     setTimeout(() => setLoading(false), 2000);
@@ -78,46 +79,48 @@ export default function SignupPage() {
   return (
     <AuthLayout>
       <section className="flex items-center justify-center px-4">
-        <div className="bg-[#2d1f2cc6] text-white rounded-xl shadow-lg p-8 md:p-10 w-full max-w-md flex flex-col gap-6">
+        <div className="bg-[#2d1f2cc6] text-white rounded-xl shadow-lg p-8 md:p-10 w-full max-w-md flex flex-col gap-5">
           {/* Title */}
-          <h2 className="text-center text-2xl font-bold text-[#C59F60]">Create Account</h2>
+          <h2 className="text-center text-2xl font-bold text-[#C59F60]">
+            Create Account
+          </h2>
 
           {/* Social Register */}
           <div className="flex flex-col gap-3 justify-center">
             <h3 className="text-center text-sm">Register with:</h3>
-            <div className="flex flex-row gap-4 flex-1 mb-4 justify-center">
-                <Button
-                  isExternal
-                  as={Link}
-                  className="text-sm font-normal text-default-600 bg-default-100 w-10 h-12"
-                  variant="light"
-                >
-                  {discordIcon}
-                </Button>
-                <Button
-                  isExternal
-                  as={Link}
-                  className="text-sm font-normal text-default-600 bg-default-100 w-10 h-12"
-                  variant="light"
-                >
-                  {githubIcon}
-                </Button>
-                <Button
-                  isExternal
-                  as={Link}
-                  className="text-sm text-default-600 bg-default-100 w-10 h-12"
-                  variant="light"
-                >
-                  {googleIcon}
-                </Button>
-              </div>
+            <div className="flex flex-row gap-4 flex-1 justify-center">
+              <Button
+                isExternal
+                as={Link}
+                className="text-sm font-normal text-default-600 bg-default-100 w-10 h-12"
+                variant="light"
+              >
+                {discordIcon}
+              </Button>
+              <Button
+                isExternal
+                as={Link}
+                className="text-sm font-normal text-default-600 bg-default-100 w-10 h-12"
+                variant="light"
+              >
+                {githubIcon}
+              </Button>
+              <Button
+                isExternal
+                as={Link}
+                className="text-sm text-default-600 bg-default-100 w-10 h-12"
+                variant="light"
+              >
+                {googleIcon}
+              </Button>
+            </div>
           </div>
 
           {/* Divider */}
           <div className="flex items-center justify-center gap-4">
             <Divider className="w-32" />
-                <h3 className="text-[#C59F60]">Or</h3>
-                <Divider className="w-32" />
+            <h3 className="text-[#C59F60]">Or</h3>
+            <Divider className="w-32" />
           </div>
 
           {/* Form */}
@@ -163,27 +166,27 @@ export default function SignupPage() {
               isLoading={loading}
               type="submit"
               spinner={
-                  <svg
-                    className="animate-spin h-5 w-5 text-current"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <circle
-                      className="opacity-25"
-                      cx="12"
-                      cy="12"
-                      r="10"
-                      stroke="currentColor"
-                      strokeWidth="4"
-                    />
-                    <path
-                      className="opacity-75"
-                      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                      fill="currentColor"
-                    />
-                  </svg>
-                }
+                <svg
+                  className="animate-spin h-5 w-5 text-current"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle
+                    className="opacity-25"
+                    cx="12"
+                    cy="12"
+                    r="10"
+                    stroke="currentColor"
+                    strokeWidth="4"
+                  />
+                  <path
+                    className="opacity-75"
+                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                    fill="currentColor"
+                  />
+                </svg>
+              }
               className="w-full h-12 font-medium bg-[#C59F60] text-black rounded-md hover:opacity-90 transition"
             >
               Sign Up
@@ -193,7 +196,11 @@ export default function SignupPage() {
           {/* Login Redirect */}
           <p className="text-sm text-gray-400 text-center">
             Already have an account?{" "}
-            <Link href="/login" underline="hover" className="text-[#C59F60] text-sm">
+            <Link
+              href="/login"
+              underline="hover"
+              className="text-[#C59F60] text-sm"
+            >
               Login
             </Link>
           </p>
