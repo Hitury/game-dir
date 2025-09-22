@@ -1,62 +1,50 @@
 import { useRef } from "react";
+import { Card, CardBody } from "@heroui/card";
 
-const items = [ // Praise the Sun!
-  { id: 1, title: "Placeholder", image: "/praisethesun.jpg" },
-  { id: 2, title: "Placeholder", image: "/praisethesun.jpg" },
-  { id: 3, title: "Placeholder", image: "/praisethesun.jpg" },
-  { id: 4, title: "Placeholder", image: "/praisethesun.jpg" },
-  { id: 5, title: "Placeholder", image: "/praisethesun.jpg" },
-  { id: 6, title: "Placeholder", image: "/praisethesun.jpg" },
-  { id: 7, title: "Placeholder", image: "/praisethesun.jpg" },
-  { id: 8, title: "Placeholder", image: "/praisethesun.jpg" },
-  { id: 9, title: "Placeholder", image: "/praisethesun.jpg" },
-  { id: 10, title: "Placeholder", image: "/praisethesun.jpg" },
+const items = [
+  { id: 1, title: "Dark Souls III", image: "/praisethesun.jpg" },
+  { id: 2, title: "Hollow Knight", image: "/praisethesun.jpg" },
+  { id: 3, title: "Hades", image: "/praisethesun.jpg" },
+  { id: 4, title: "Balatro", image: "/praisethesun.jpg" },
+  { id: 5, title: "Bloodborne", image: "/praisethesun.jpg" },
+  { id: 6, title: "Sekiro", image: "/praisethesun.jpg" },
 ];
 
 function SnappingCarousel({ titleText }: { titleText: string }) {
   const scrollRef = useRef<HTMLDivElement | null>(null);
 
-  // No useEffect is needed; the carousel will default to the starting position.
-  // We also no longer need to clone the items array.
-
   const scroll = (direction: "left" | "right") => {
     if (!scrollRef.current) return;
-
     const container = scrollRef.current;
-    const scrollAmount = container.clientWidth; // Scroll by the full container width
+    const scrollAmount = container.clientWidth * 0.9; // almost full row width
 
     if (direction === "left") {
-      // Scroll left. The browser will automatically stop at the beginning.
       container.scrollBy({ left: -scrollAmount, behavior: "smooth" });
     } else {
-      // For right scroll, check if we are near the end.
-      // A 1px buffer is added to account for potential sub-pixel rounding.
       const isAtEnd =
-        container.scrollLeft + container.clientWidth >= container.scrollWidth - 1;
+        container.scrollLeft + container.clientWidth >=
+        container.scrollWidth - 1;
 
       if (isAtEnd) {
-        // If at the end, smoothly scroll back to the very beginning.
         container.scrollTo({ left: 0, behavior: "smooth" });
       } else {
-        // Otherwise, just scroll to the right.
         container.scrollBy({ left: scrollAmount, behavior: "smooth" });
       }
     }
   };
 
-  // The onScroll handler has been removed as it's no longer necessary.
-
   return (
-    <div className="relative w-full max-w-5xl mx-auto mt-[30rem]">
-      <h1 className="text-[44px]">{titleText}</h1>
+    <section className="relative w-full max-w-6xl mx-auto px-4 py-12">
+      <h2 className="text-2xl font-bold text-gold-500 mb-6">{titleText}</h2>
+
       {/* Left Arrow */}
       <button
         onClick={() => scroll("left")}
-        className="absolute top-1/2 left-2 -translate-y-1/2 z-10 bg-[#db934b9b] p-2 rounded-full shadow-lg hover:bg-[#DB924B] transition"
+        className="absolute top-1/2 left-2 -translate-y-1/2 z-10 bg-black/50 hover:bg-black/70 p-2 rounded-full shadow-lg"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="w-6 h-6 text-[#000000]"
+          className="w-6 h-6 text-gold-500"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -68,16 +56,23 @@ function SnappingCarousel({ titleText }: { titleText: string }) {
       {/* Carousel Container */}
       <div
         ref={scrollRef}
-        className="flex overflow-x-auto scroll-smooth no-scrollbar space-x-4 px-10"
+        className="flex overflow-x-auto scroll-smooth no-scrollbar snap-x snap-mandatory space-x-4"
       >
-        {/* We now map over the original `items` array */}
         {items.map((item) => (
-          <div
-            key={item.id}
-            className="min-w-[150px] flex-shrink-0 rounded-xl overflow-hidden shadow-lg bg-[#00000050]"
-          >
-            <img src={item.image} alt={item.title} className="w-full h-48 object-cover" />
-            <div className="p-4 text-center font-semibold text-lg">{item.title}</div>
+          <div key={item.id} className="snap-center">
+            <Card isHoverable isPressable className="bg-black/10 border border-default-200 hover:border-gold-500 transition rounded-xl min-w-[220px] sm:min-w-[250px] lg:min-w-[280px]">
+              <CardBody className="flex flex-col items-center text-center p-4">
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="w-full h-40 object-cover rounded-lg mb-3"
+                />
+                <h3 className="text-lg font-semibold">{item.title}</h3>
+                <p className="text-sm text-default-500">
+                  A critically acclaimed action RPG.
+                </p>
+              </CardBody>
+            </Card>
           </div>
         ))}
       </div>
@@ -85,11 +80,11 @@ function SnappingCarousel({ titleText }: { titleText: string }) {
       {/* Right Arrow */}
       <button
         onClick={() => scroll("right")}
-        className="absolute top-1/2 right-2 -translate-y-1/2 z-10 p-2 rounded-full shadow-lg hover:bg-[#DB924B]    transition"
+        className="absolute top-1/2 right-2 -translate-y-1/2 z-10 bg-black/50 hover:bg-black/70 p-2 rounded-full shadow-lg"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="w-6 h-6 text-[#000000]"
+          className="w-6 h-6 text-gold-500"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -97,7 +92,7 @@ function SnappingCarousel({ titleText }: { titleText: string }) {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
         </svg>
       </button>
-    </div>
+    </section>
   );
 }
 

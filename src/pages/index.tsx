@@ -1,16 +1,14 @@
 import { Link } from "@heroui/link";
-import { button as buttonStyles } from "@heroui/theme";
-import { Divider } from "@heroui/divider";
 
 import { siteConfig } from "@/config/site";
 import { title, subtitle } from "@/components/primitives";
-import Carousel from "@/components/carousel-explorer";
+import Carousel from "@/components/carousel";
 import CarouselTop from "@/components/carousel-top";
 import DefaultLayout from "@/layouts/default";
 import { ScrollToTopButton } from '@/components/scrolltotop';
 import Footer from "@/components/footer";
 import { Navbar } from "@/components/navbar";
-
+import  FeaturedCarousel from "@/components/featured.tsx"
 import { Button } from "@heroui/button";
 import { Card, CardBody } from "@heroui/card";
 import { Avatar } from "@heroui/avatar";
@@ -18,6 +16,34 @@ import { Avatar } from "@heroui/avatar";
 import GameShowcase from "@/components/carousel-top"; // your existing carousel
 
 export default function HomePage() {
+  const featuredGames = [
+  {
+    title: "Dark Souls III",
+    image: "https://picsum.photos/seed/ds3/600/300",
+    description: "A critically acclaimed action RPG with deep lore and combat.",
+  },
+  {
+    title: "Hollow Knight",
+    image: "https://picsum.photos/seed/hk/600/300",
+    description: "Explore Hallownest, a world of adventure and mystery.",
+  },
+  {
+    title: "Hades",
+    image: "https://picsum.photos/seed/hades/600/300",
+    description: "Defy the god of the dead in this award-winning roguelike.",
+  },
+  {
+    title: "Hades",
+    image: "https://picsum.photos/seed/hades/600/300",
+    description: "Defy the god of the dead in this award-winning roguelike.",
+  },
+  {
+    title: "Hades",
+    image: "https://picsum.photos/seed/hades/600/300",
+    description: "Defy the god of the dead in this award-winning roguelike.",
+  },
+];
+
   return (
     <main className="flex flex-col bg-background text-foreground">
       <Navbar />
@@ -59,32 +85,9 @@ export default function HomePage() {
         </h2>
         <GameShowcase />
       </section>
-
+      <Carousel titleText="Recommended"/>
       {/* FEATURED */}
-      <section className="max-w-6xl mx-auto px-4 py-12">
-        <h2 className="text-2xl font-bold text-gold-500 mb-6">Featured</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {["Dark Souls III", "Hollow Knight", "Hades"].map((title, i) => (
-            <Card
-              isHoverable
-              key={i}
-              className="border border-default-200 hover:border-gold-500 transition rounded-xl"
-            >
-              <CardBody className="flex flex-col items-center text-center p-6">
-                <img
-                  src={`https://picsum.photos/seed/${i}/300/200`}
-                  alt={title}
-                  className="w-full h-40 object-cover rounded-lg mb-4"
-                />
-                <h3 className="text-lg font-semibold mb-2">{title}</h3>
-                <p className="text-sm text-default-500">
-                  A critically acclaimed action RPG with deep lore and combat.
-                </p>
-              </CardBody>
-            </Card>
-          ))}
-        </div>
-      </section>
+      <FeaturedCarousel items={featuredGames}/>
 
       {/* FAVORITES */}
       <section className="max-w-4xl mx-auto px-4 py-12">
