@@ -3,8 +3,11 @@ import { Button } from "@heroui/button";
 import { Avatar } from "@heroui/avatar";
 import { ScrollToTopButton } from "@/components/scrolltotop";
 import TabFunc from "@/components/tabs";
+import { CustomModal } from "@/components/modal";
+import { useDisclosure } from "@heroui/react";
 
 export default function DocsPage() {
+  const { isOpen, onOpen, onOpenChange } = useDisclosure();
   return (
     <main className="flex flex-col bg-background text-foreground px-10">
       <Navbar />
@@ -30,8 +33,8 @@ export default function DocsPage() {
 
         {/* Action Buttons */}
         <div className="flex gap-3">
-          <Button className="bg-[#C59F60] text-black hover:bg-[#b88a5c]">
-            Play Now
+          <Button className="bg-[#C59F60] text-black hover:bg-[#b88a5c]" onPress={onOpen}>
+            Add to List
           </Button>
           <Button
             variant="bordered"
@@ -41,6 +44,14 @@ export default function DocsPage() {
           </Button>
         </div>
       </section>
+
+      
+      {/* MODAL */}
+      <CustomModal 
+        isOpen={isOpen} 
+        onOpenChange={onOpenChange} 
+        title="Add Elden Ring to Your List" 
+      />
 
       {/* DIVIDER */}
 

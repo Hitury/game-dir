@@ -7,7 +7,7 @@ import { Tabs, Tab } from "@heroui/tabs";
 import { Skeleton } from "@heroui/skeleton";
 import { useEffect, useState } from "react";
 import { useDisclosure } from "@heroui/react"; // manages open/close
-import ConfirmBlockModal from "@/components/block-modal.tsx"
+import ConfirmBlockModal from "@/components/block-modal.tsx";
 
 export default function ProfilePage() {
   const [loading, setLoading] = useState(true);
@@ -68,17 +68,17 @@ export default function ProfilePage() {
                     <Button color="primary" variant="solid">
                       Add Friend
                     </Button>
-                    <Button color="danger" variant="ghost" onPress={onOpen} >
+                    <Button color="danger" variant="ghost" onPress={onOpen}>
                       Block
                     </Button>
                   </>
                 )}
               </div>
               <ConfirmBlockModal
-        isOpen={isOpen}
-        onClose={onClose}
-        onConfirm={handleConfirmBlock}
-      />
+                isOpen={isOpen}
+                onClose={onClose}
+                onConfirm={handleConfirmBlock}
+              />
             </div>
           </div>
 
@@ -118,6 +118,15 @@ export default function ProfilePage() {
             aria-label="Profile Sections"
             color="primary"
             variant="underlined"
+            classNames={{
+              base: "w-full",
+              tabList:
+                "gap-6 w-full relative rounded-none p-0 border-b border-[#DB924B]/30 bg-black/0",
+              cursor: "w-full bg-[#DB924B]", // underline cursor
+              tab: "max-w-fit h-12",
+              tabContent:
+                "group-data-[selected=true]:text-[#DB924B] text-gray-400 font-medium transition-colors",
+            }}
           >
             <Tab key="about" title="About">
               <div className="mt-6 text-gray-500">
