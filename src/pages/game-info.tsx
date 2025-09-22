@@ -10,13 +10,13 @@ export default function DocsPage() {
       <Navbar />
 
       {/* GAME HEADER - now the top area */}
-      <section className="relative flex flex-col md:flex-row items-center justify-between gap-6 px-20 py-15 w-full mx-auto bg-black/40 border-b border-[#DB924B]/30 mt-6">
+      <section className="relative flex flex-col md:flex-row items-center justify-between gap-6 px-20 py-15 w-full mx-auto bg-black/10 border-b border-[#DB924B]/30 mt-6">
         {/* Game Icon */}
         <Avatar
           src="/sunbros.jpg"
           size="lg"
           radius="sm"
-          className="border border-[#DB924B]/50"
+          className="border border-[#DB924B]/0"
         />
 
         {/* Title + Metadata */}

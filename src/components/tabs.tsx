@@ -10,7 +10,7 @@ export default function TabFunc() {
         classNames={{
           base: "w-full",
           tabList:
-            "gap-6 w-full relative rounded-none p-0 border-b border-[#DB924B]/30 bg-black/40",
+            "gap-6 w-full relative rounded-none p-0 border-b border-[#DB924B]/30 bg-black/0",
           cursor: "w-full bg-[#DB924B]", // underline cursor
           tab: "max-w-fit px-2 h-12",
           tabContent:
@@ -18,7 +18,7 @@ export default function TabFunc() {
         }}
       >
         <Tab key="details" title="Details">
-          <Card className="bg-black/40 border border-[#DB924B]/20">
+          <Card className="bg-black/30 border border-[#DB924B]/20">
             <CardBody className="text-gray-300 text-sm">
               Me Bomba — Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
               tempor incididunt ut labore et dolore magna aliqua...
