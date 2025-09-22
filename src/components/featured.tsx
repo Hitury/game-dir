@@ -41,7 +41,7 @@ export default function FeaturedCarousel({
                 key={i}
                 className={`min-w-[250px] sm:min-w-[300px] lg:min-w-[350px] px-2`}
               >
-                <Card isHoverable className=" bg-black/10 border border-default-200 hover:border-gold-500 transition rounded-xl h-full">
+                <Card isHoverable isPressable className=" bg-black/10 border border-default-200 hover:border-gold-500 transition rounded-xl h-full">
                   <CardBody className="flex flex-col items-center text-center p-6">
                     <img
                       src={game.image}

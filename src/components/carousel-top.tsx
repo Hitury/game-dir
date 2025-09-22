@@ -65,9 +65,6 @@ export default function GameShowcase() {
   return (
     <div className="flex flex-col items-center justify-center text-white p-4 sm:p-6">
       {/* Top Sellers Title */}
-      <h2 className="text-lg sm:text-xl font-bold text-[#C59F60] mb-4 self-start">
-        Top Sellers
-      </h2>
 
       <div className="flex items-center gap-2 sm:gap-4 w-full max-w-6xl">
         {/* Left Arrow */}

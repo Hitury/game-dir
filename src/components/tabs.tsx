@@ -2,7 +2,7 @@ import {Tabs, Tab, Card, CardBody} from "@heroui/react";
 
 export default function TabFunc() {
   return (
-    <div className="flex w-full flex-col mt-[10px]">
+    <div className="flex flex-col mt-[10px]">
       <Tabs aria-label="Options">
         <Tab key="details" title="Details">
           <Card>
