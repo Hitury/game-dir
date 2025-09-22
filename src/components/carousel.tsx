@@ -47,7 +47,7 @@ function SnappingCarousel({ titleText }: { titleText: string }) {
           className="w-6 h-6 text-gold-500"
           fill="none"
           viewBox="0 0 24 24"
-          stroke="currentColor"
+          stroke="white"
         >
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
         </svg>
@@ -87,7 +87,7 @@ function SnappingCarousel({ titleText }: { titleText: string }) {
           className="w-6 h-6 text-gold-500"
           fill="none"
           viewBox="0 0 24 24"
-          stroke="currentColor"
+          stroke="white"
         >
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
         </svg>
