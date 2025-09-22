@@ -1,6 +1,4 @@
-import { subtitle, title } from "@/components/primitives";
 import { Navbar } from "@/components/navbar";
-import { Divider } from "@heroui/divider";
 import { Button } from "@heroui/button";
 import { Avatar } from "@heroui/avatar";
 import { ScrollToTopButton } from "@/components/scrolltotop";
