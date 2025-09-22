@@ -18,8 +18,8 @@ export default function TabFunc() {
         }}
       >
         <Tab key="details" title="Details">
-          <Card className="bg-black/30 border border-[#DB924B]/20">
-            <CardBody className="text-gray-300 text-sm">
+          <Card className="bg-black/10 border border-[#DB924B]/20">
+            <CardBody className="text-gray-400 text-sm">
               Me Bomba — Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
               tempor incididunt ut labore et dolore magna aliqua...
             </CardBody>

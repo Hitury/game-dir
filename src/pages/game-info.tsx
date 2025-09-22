@@ -52,24 +52,24 @@ export default function DocsPage() {
       {/* CONTENT GRID */}
       <section className="max-w-6xl mx-auto px-4 pb-12 grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Left Content (media/overview) */}
-        <div className="lg:col-span-2 bg-black/40 rounded-xl p-4 border border-[#DB924B]/20">
+        <div className="lg:col-span-2 bg-black/10 rounded-xl p-4 border border-[#DB924B]/20">
           <img
             src="/sunbros.jpg"
             alt="Gameplay Preview"
             className="w-full h-64 object-cover rounded-lg mb-4"
           />
-          <p className="text-gray-300 text-sm">
+          <p className="text-gray-400 text-sm">
             Explore vast worlds, fight bosses, and uncover mysteries. Elden Reign
             offers deep RPG mechanics with stunning visuals and engaging combat.
           </p>
         </div>
 
         {/* Right Content (stats / sidebar) */}
-        <div className="bg-black/40 rounded-xl p-4 border border-[#DB924B]/20">
+        <div className="bg-black/10 rounded-xl p-4 border border-[#DB924B]/20">
           <h3 className="text-lg font-semibold text-[#DB924B] mb-2">
             Player Stats
           </h3>
-          <ul className="space-y-2 text-gray-300 text-sm">
+          <ul className="space-y-2 text-gray-400 text-sm">
             <li>Active Players: 12,158,249</li>
             <li>Peak Online: 1,245,012</li>
             <li>Followers: 854,231</li>
