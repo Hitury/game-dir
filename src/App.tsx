@@ -10,8 +10,13 @@ import LoginPage from "@/pages/login";
 import SupportPage from "@/pages/support";
 import PageWrapper from "./components/PageWrapper";
 import SignupPage from "@/pages/signup";
+import testConnection from "@/auth/testconnection"
 import { AnimatePresence } from "framer-motion";
+import { useEffect } from "react";
 function App() {
+  useEffect(() => {
+    testConnection()
+  })
   return (
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
