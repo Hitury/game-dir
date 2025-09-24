@@ -1,11 +1,11 @@
-import {Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button} from "@heroui/react";
+import {Dropdown, DropdownTrigger, DropdownMenu, DropdownItem} from "@heroui/react";
 
 export default function Avatar() {
   return (
     <Dropdown>
       <DropdownTrigger>
         <button>
-          <img className="w-[35px] h-[35px] rounded-full mr-2 hover:cursor-pointer" src="/Kippie.webp" alt="Avatar" />
+          <img className="w-[35px] h-[35px] rounded-full ml-4 hover:cursor-pointer" src="/Kippie.webp" alt="Avatar" />
         </button>
       </DropdownTrigger>
       <DropdownMenu aria-label="Static Actions">
