@@ -105,7 +105,7 @@ export const Navbar = () => {
             Support us!
           </Button>
           </Link>
-          <Link href="/login">
+          {/* <Link href="/login">
           <Button
             isExternal
             as={Link}
@@ -114,6 +114,15 @@ export const Navbar = () => {
           >
             Login
           </Button>
+          </Link> */}
+          <Link href="/profile">
+          <button
+            title="Profile"
+            className="ml-2 p-0 border-0 bg-transparent"
+            aria-label="Profile"
+          >
+            <img className="w-15 rounded-full mr-2 hover:cursor-pointer" src="/Kippie.webp" alt="Avatar" />
+          </button>
           </Link>
         </NavbarItem>
       </NavbarContent>
