@@ -121,7 +121,7 @@ export const Navbar = () => {
             className="ml-2 p-0 border-0 bg-transparent"
             aria-label="Profile"
           >
-            <img className="w-15 rounded-full mr-2 hover:cursor-pointer" src="/Kippie.webp" alt="Avatar" />
+            <img className="w-[35px] h-[35px] rounded-full mr-2 hover:cursor-pointer" src="/Kippie.webp" alt="Avatar" />
           </button>
           </Link>
         </NavbarItem>
