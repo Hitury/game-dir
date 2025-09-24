@@ -14,6 +14,8 @@ import {
 import { link as linkStyles } from "@heroui/theme";
 import clsx from "clsx";
 
+import Avatar  from "@/components/avatar";
+
 import { siteConfig } from "@/config/site";
 import { ThemeSwitch } from "@/components/theme-switch";
 import {
@@ -115,7 +117,7 @@ export const Navbar = () => {
             Login
           </Button>
           </Link> */}
-          <Link href="/profile">
+          {/* <Link href="/profile">
           <Button
             title="Profile"
             className="ml-2 p-0 border-0 bg-transparent"
@@ -123,7 +125,8 @@ export const Navbar = () => {
           >
             <img className="w-[35px] h-[35px] rounded-full mr-2 hover:cursor-pointer" src="/Kippie.webp" alt="Avatar" />
           </Button>
-          </Link>
+          </Link> */}
+          <Avatar />
         </NavbarItem>
       </NavbarContent>
 
