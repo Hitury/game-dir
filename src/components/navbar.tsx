@@ -116,13 +116,13 @@ export const Navbar = () => {
           </Button>
           </Link> */}
           <Link href="/profile">
-          <button
+          <Button
             title="Profile"
             className="ml-2 p-0 border-0 bg-transparent"
             aria-label="Profile"
           >
             <img className="w-[35px] h-[35px] rounded-full mr-2 hover:cursor-pointer" src="/Kippie.webp" alt="Avatar" />
-          </button>
+          </Button>
           </Link>
         </NavbarItem>
       </NavbarContent>
