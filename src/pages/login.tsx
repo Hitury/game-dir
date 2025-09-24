@@ -8,25 +8,20 @@ import { Divider } from "@heroui/divider";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import supabase from "@/auth/baseClient"; // ✅ import supabase client
 
-const images = [
-  "solaireandsiegmeyer.jpg",
-  "sunbros.jpg",
-];
+const images = ["solaireandsiegmeyer.jpg", "sunbros.jpg"];
 
 export default function LoginPage() {
-  const emailInput = (
-    <Input
-      isRequired
-      className="max-w-xs"
-      defaultValue=""
-      placeholder="solaire@cinderwatch.com"
-      label="Email"
-      type="email"
-    />
-  );
-
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [loading, setLoading] = useState(false);
+  const [isLeaving, setIsLeaving] = useState(false);
+  const [emailError, setEmailError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
+
+  const navigate = useNavigate();
 
   // Auto slide every 5 seconds
   useEffect(() => {
@@ -35,6 +30,68 @@ export default function LoginPage() {
     }, 5000);
     return () => clearInterval(interval);
   }, []);
+
+  // ✅ handle Supabase login
+  const handleLogin = async () => {
+    setEmailError("");
+    setPasswordError("");
+
+    if (!email) {
+      setEmailError("Email is required.");
+      return;
+    }
+    if (!password) {
+      setPasswordError("Password is required.");
+      return;
+    }
+
+    setLoading(true);
+    try {
+      const { error } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+      });
+
+      if (error) {
+        // map supabase error to input field if possible
+        if (error.message.toLowerCase().includes("email")) {
+          setEmailError(error.message);
+        } else if (error.message.toLowerCase().includes("password")) {
+          setPasswordError(error.message);
+        } else {
+          // fallback (global error)
+          setPasswordError(error.message);
+        }
+      } else {
+        navigate("/")
+      }
+    } catch (err) {
+      setPasswordError("Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleGoSignup = (e: React.MouseEvent) => {
+    e.preventDefault(); // stop immediate navigation
+    if (isLeaving) return; // guard double clicks
+    setIsLeaving(true); // start exit animation
+  };
+
+  const emailInput = (
+    <Input
+      isRequired
+      className="max-w-xs"
+      defaultValue=""
+      placeholder="solaire@cinderwatch.com"
+      label="Email"
+      type="email"
+      value={email}
+      onChange={(e) => setEmail(e.target.value)}
+      isInvalid={!!emailError}
+      errorMessage={emailError}
+    />
+  );
 
   const passInput = (
     <Input
@@ -45,6 +102,10 @@ export default function LoginPage() {
       placeholder="Enter your password"
       label="Password"
       type="password"
+      value={password}
+      onChange={(e) => setPassword(e.target.value)}
+      isInvalid={!!passwordError}
+      errorMessage={passwordError}
     />
   );
 
@@ -63,7 +124,6 @@ export default function LoginPage() {
       />
     </svg>
   );
-
   const googleIcon = (
     <svg
       aria-label="Google logo"
@@ -93,7 +153,6 @@ export default function LoginPage() {
       </g>
     </svg>
   );
-
   const githubIcon = (
     <svg
       aria-label="GitHub logo"
@@ -108,67 +167,39 @@ export default function LoginPage() {
       ></path>
     </svg>
   );
-
-  const [loading, setLoading] = useState(false);
-
-  const handleClick = () => {
-    setLoading(true);
-
-    // Simulate async action (e.g. login, API call)
-    setTimeout(() => {
-      setLoading(false);
-      // redirect, show toast, etc...
-    }, 2000);
-  };
-
-  const navigate = useNavigate();
-  const [isLeaving, setIsLeaving] = useState(false);
-
-  const handleGoSignup = (e: React.MouseEvent) => {
-    e.preventDefault();              // stop immediate navigation
-    if (isLeaving) return;           // guard double clicks
-    setIsLeaving(true);              // start exit animation
-  };
-
   return (
     <motion.div
-      // start at center
       initial={{ x: 0, opacity: 1 }}
-      // animate depends on whether we're leaving
       animate={isLeaving ? { x: "-100vw", opacity: 0 } : { x: 0, opacity: 1 }}
       transition={{ duration: 0.45, ease: "easeInOut" }}
-      // after exit animation finished, navigate
       onAnimationComplete={() => {
         if (isLeaving) navigate("/signup");
       }}
       className="min-h-screen"
     >
       <AuthLayout>
-      <section className="h-[100%] flex items-center justify-center">
-        <div className="flex flex-col bg-[#2d1f2cc6] p-7 rounded-lg shadow-lg sm:flex-row justify-center overflow-hidden">
-          {/* <div className="bg-[#DB924B] w-110 h-130 rounded-sm flex items-start justify- self-center text-black p-3"> */}
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={currentIndex}
-              className="bg-[#DB924B] w-110 h-130 rounded-sm flex items-start bg-cover self-center text-black p-3"
-              style={{ backgroundImage: `url(${images[currentIndex]})` }}
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -50 }}
-              transition={{ duration: 0.8, ease: "easeInOut" }}
-            />
-          </AnimatePresence>
-          {/* </div> */}
-          <div className="w-110 h-130 flex flex-col items-center justify-center gap-7 p-10 sm:ml-7">
-            <h1 className="text-4xl font-bold text-[#C59F60]">Login</h1>
-            {emailInput}
-            {passInput}
-            <Link href="/">
+        <section className="h-[100%] flex items-center justify-center">
+          <div className="flex flex-col bg-[#2d1f2cc6] p-7 rounded-lg shadow-lg sm:flex-row justify-center overflow-hidden">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentIndex}
+                className="bg-[#DB924B] w-110 h-130 rounded-sm flex items-start bg-cover self-center text-black p-3"
+                style={{ backgroundImage: `url(${images[currentIndex]})` }}
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -50 }}
+                transition={{ duration: 0.8, ease: "easeInOut" }}
+              />
+            </AnimatePresence>
+            <div className="w-[440px] h-[520px] flex flex-col items-center justify-center gap-7 p-10 sm:ml-7">
+              <h1 className="text-4xl font-bold text-[#C59F60]">Login</h1>
+              {emailInput}
+              {passInput}
+
               <Button
-                isExternal
-                as={Link}
-                onPress={handleClick}
+                onPress={handleLogin}
                 isLoading={loading}
+                className="flex-none w-60 h-12 text-lg font-normal text-black bg-[#B6925A] hover:opacity-90"
                 spinner={
                   <svg
                     className="animate-spin h-5 w-5 text-current"
@@ -191,19 +222,16 @@ export default function LoginPage() {
                     />
                   </svg>
                 }
-                className="text-lg font-normal text-black bg-[#B6925A] hover:opacity-90 w-60 h-12"
-                
               >
                 Login
               </Button>
-            </Link>
-            <div className="flex flex-col justify-center items-center">
-              <div className="flex flex-row gap-5 justify-center w-[40%] items-center mb-10">
-                <Divider className="w-32" />
-                <h3 className="">Or</h3>
-                <Divider className="w-32" />
-              </div>
-              <p className="text-sm text-gray-400 text-center mb-3 pb-5 transition">
+              <div className="flex flex-col justify-center items-center">
+                <div className="flex flex-row gap-5 justify-center w-[40%] items-center mb-10">
+                  <Divider className="w-32" />
+                  <h3 className="">Or</h3>
+                  <Divider className="w-32" />
+                </div>
+                <p className="text-sm text-gray-400 text-center mb-3 pb-5 transition">
                   Don't have an account yet?{" "}
                   <Link
                     href="/signup"
@@ -214,39 +242,37 @@ export default function LoginPage() {
                     Sign Up
                   </Link>
                 </p>
-              
-              <div className="flex flex-row gap-4 flex-1 mb-4">
-                <Button
-                  isExternal
-                  as={Link}
-                  className="text-sm font-normal text-default-600 bg-default-100 w-10 h-12"
-                  variant="light"
-                >
-                  {discordIcon}
-                </Button>
-                <Button
-                  isExternal
-                  as={Link}
-                  className="text-sm font-normal text-default-600 bg-default-100 w-10 h-12"
-                  variant="light"
-                >
-                  {githubIcon}
-                </Button>
-                <Button
-                  isExternal
-                  as={Link}
-                  className="text-sm text-default-600 bg-default-100 w-10 h-12"
-                  variant="light"
-                >
-                  {googleIcon}
-                </Button>
+                <div className="flex flex-row gap-4 flex-1 mb-4">
+                  <Button
+                    isExternal
+                    as={Link}
+                    className="text-sm font-normal text-default-600 bg-default-100 w-10 h-12"
+                    variant="light"
+                  >
+                    {discordIcon}
+                  </Button>
+                  <Button
+                    isExternal
+                    as={Link}
+                    className="text-sm font-normal text-default-600 bg-default-100 w-10 h-12"
+                    variant="light"
+                  >
+                    {githubIcon}
+                  </Button>
+                  <Button
+                    isExternal
+                    as={Link}
+                    className="text-sm text-default-600 bg-default-100 w-10 h-12"
+                    variant="light"
+                  >
+                    {googleIcon}
+                  </Button>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
-    </AuthLayout>
+        </section>
+      </AuthLayout>
     </motion.div>
-    
   );
 }

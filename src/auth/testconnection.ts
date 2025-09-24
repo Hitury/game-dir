@@ -1,7 +1,7 @@
 import supabase from './baseClient'
 
 export async function testConnection() {
-  const { data, error } = await supabase.from('DATA').select('id').limit(1)
+  const { data, error } = await supabase.from('DATA').select('*').limit(2)
   
   if (error) {
     console.error('❌ Connection failed:', error.message)
