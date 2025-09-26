@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
+import { AuthProvider } from "@/hooks/auth.tsx"
 
 import App from "./App.tsx";
 import "@/styles/globals.css";
@@ -10,7 +11,9 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <BrowserRouter>
       <HeroUIProvider className="coffee">
-        <App />
+        <AuthProvider>
+          <App />
+        </AuthProvider>
       </HeroUIProvider>
     </BrowserRouter>
   </React.StrictMode>,

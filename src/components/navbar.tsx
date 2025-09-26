@@ -14,7 +14,8 @@ import {
 import { link as linkStyles } from "@heroui/theme";
 import clsx from "clsx";
 
-import Avatar  from "@/components/avatar";
+import Avatar from "@/components/avatar";
+import { useAuth } from "@/hooks/auth";
 
 import { siteConfig } from "@/config/site";
 import { ThemeSwitch } from "@/components/theme-switch";
@@ -27,6 +28,19 @@ import {
 } from "@/components/icons";
 
 export const Navbar = () => {
+  const { session } = useAuth();
+  const loginButton = (
+    <Link href="/login">
+          <Button
+            isExternal
+            as={Link}
+            className="text-sm font-normal ml-2 text-black bg-[#c59f5e]"
+            variant="flat"
+          >
+            Login
+          </Button>
+          </Link>
+  );
   const searchInput = (
     <Input
       aria-label="Search"
@@ -66,7 +80,7 @@ export const Navbar = () => {
               <Link
                 className={clsx(
                   linkStyles({ color: "foreground" }),
-                  "data-[active=true]:text-primary data-[active=true]:font-medium",
+                  "data-[active=true]:text-primary data-[active=true]:font-medium"
                 )}
                 color="foreground"
                 href={item.href}
@@ -97,17 +111,20 @@ export const Navbar = () => {
         <NavbarItem className="hidden lg:flex">{searchInput}</NavbarItem>
         <NavbarItem className="hidden md:flex">
           <Link href={siteConfig.links.sponsor}>
-          <Button
-            isExternal
-            as={Link}
-            className="text-sm font-normal text-default-600 bg-default-100"
-            startContent={<HeartFilledIcon className="text-danger" />}
-            variant="flat"
-          >
-            Support us!
-          </Button>
+            <Button
+              isExternal
+              as={Link}
+              className="text-sm font-normal text-default-600 bg-default-100"
+              startContent={<HeartFilledIcon className="text-danger" />}
+              variant="flat"
+            >
+              Support us!
+            </Button>
           </Link>
-          {/* <Link href="/login">
+          {session && session.user?.aud === "authenticated" ? 
+          <Avatar /> 
+          : 
+          <Link href="/login">
           <Button
             isExternal
             as={Link}
@@ -116,17 +133,7 @@ export const Navbar = () => {
           >
             Login
           </Button>
-          </Link> */}
-          {/* <Link href="/profile">
-          <Button
-            title="Profile"
-            className="ml-2 p-0 border-0 bg-transparent"
-            aria-label="Profile"
-          >
-            <img className="w-[35px] h-[35px] rounded-full mr-2 hover:cursor-pointer" src="/Kippie.webp" alt="Avatar" />
-          </Button>
-          </Link> */}
-          <Avatar />
+          </Link>}
         </NavbarItem>
       </NavbarContent>
 
