@@ -10,7 +10,7 @@ export default function Avatar() {
     <Dropdown>
       <DropdownTrigger>
         <button>
-          <img className="w-[35px] h-[35px] rounded-full ml-4 hover:cursor-pointer" src="/Kippie.webp" alt="Avatar" />
+          <img className="w-[35px] h-[35px] rounded-full ml-4 hover:cursor-pointer" src={profile?.avatar_url ? profile?.avatar_url : "/placeholder.jpg"} alt="Avatar" />
         </button>
       </DropdownTrigger>
       <DropdownMenu aria-label="Static Actions">
