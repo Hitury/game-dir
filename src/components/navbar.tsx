@@ -33,7 +33,7 @@ export const Navbar = () => {
     <Input
       aria-label="Search"
       classNames={{
-        inputWrapper: "bg-[#1b161a]",
+        inputWrapper: "bg-[#1b161a38]",
         input: "text-sm",
       }}
       endContent={
