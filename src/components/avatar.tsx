@@ -3,11 +3,12 @@ import { Skeleton } from "@heroui/skeleton";
 import { useAuth } from "@/hooks/auth";
 import { useProfile } from "@/hooks/useprofile";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Avatar() {
   const { session, signOut } = useAuth();
   const { profile } = useProfile();
-
+  const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
   const [src, setSrc] = useState<string | null>(null);
 
@@ -65,13 +66,13 @@ export default function Avatar() {
       </DropdownTrigger>
 
       <DropdownMenu aria-label="User Actions">
-        <DropdownItem key="profile" className="h-14 gap-2">
+        <DropdownItem key="profile" className="h-14 gap-2" onPress={() => navigate("/profile")}>
           <p className="font-semibold">Signed in as</p>
           <p className="font-semibold">
             {session?.user ? profile?.username || "Loading..." : "Guest"}
           </p>
         </DropdownItem>
-        <DropdownItem key="settings">Settings</DropdownItem>
+        <DropdownItem key="settings" onPress={() => navigate("/settings")}>Settings</DropdownItem>
         <DropdownItem key="placeholder">Placeholder</DropdownItem>
         <DropdownItem
           key="logout"
