@@ -1,5 +1,6 @@
 import { Tabs, Tab, Card, CardBody } from "@heroui/react";
 import { subtitle  } from "./primitives";
+import DropDownFunc from "@/components/dropdown";
 
 export default function TabFunc() {
   return (
@@ -38,11 +39,7 @@ export default function TabFunc() {
           <Card className="bg-black/10 border border-[#DB924B]/20">
             <CardBody className="text-gray-400 text-sm">
               <h2 className={subtitle()}>Reviews</h2>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat modi ducimus asperiores iusto saepe corporis sed assumenda commodi, atque nam reiciendis aliquid voluptates placeat quae facere natus eligendi aut nesciunt. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Optio soluta quidem magnam doloribus consequuntur esse, iure facere. Perferendis omnis aliquam debitis, voluptate velit corrupti dolore obcaecati ea magnam, delectus est! Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum quibusdam voluptate debitis nobis similique nam, mollitia animi tempora dolore illum culpa suscipit architecto, blanditiis vitae repellendus, molestias nihil at vel? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque quidem aperiam quasi minus velit quas fugit minima nostrum explicabo mollitia ducimus id maxime dolor, illo officiis doloribus praesentium soluta at?
-              <br/><br/>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate tempore rerum ipsa ratione doloribus reiciendis? Veritatis id nobis reprehenderit eius quos voluptatum sed molestias sint iure, fuga eos saepe aperiam! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis totam rem quaerat provident velit expedita iure, voluptatum natus enim in eaque itaque recusandae, quos eos. Modi neque ea ipsam eum? Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum architecto possimus minima corporis magnam officia dolores cum minus, accusamus soluta sunt, odio officiis debitis neque ad quae facere deserunt cumque.
-              <br/><br/>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium culpa itaque, consequuntur provident ducimus qui consectetur! Quia sit quo enim possimus architecto tempore nisi voluptate, fuga officiis. Rerum, iusto asperiores.
+              <DropDownFunc />
               <img src="./public/hasbrowncat.gif" className="w-[100px]"/>
             </CardBody>
           </Card>
