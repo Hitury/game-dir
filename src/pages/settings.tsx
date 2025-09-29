@@ -12,8 +12,10 @@ export default function DocsPage() {
                 <img src={profile?.avatar_url ? profile?.avatar_url : "/placeholder.jpg"} className="w-[75px] rounded-full border-2" />
                 <h1 className={subtitle()}>Welcome! *user*</h1>
                 <Button className="my-[10px]">Choose Photo..</Button>
-                <Input className="my-[10px]" placeholder="Change Username.."></Input>
-                <Input placeholder="Change Password.."></Input>
+                <Input className="my-[5px]" placeholder="Change Username.." />
+                <Input className="my-[5px]" placeholder="Change Password.." />
+                {/* <h2 className={subtitle()}>About</h2>
+                <Input className="" placeholder="Add Description.." /> */}
             </div>
         </DefaultLayout>
     );
