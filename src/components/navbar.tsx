@@ -29,18 +29,6 @@ import {
 
 export const Navbar = () => {
   const { session } = useAuth();
-  const loginButton = (
-    <Link href="/login">
-          <Button
-            isExternal
-            as={Link}
-            className="text-sm font-normal ml-2 text-black bg-[#c59f5e]"
-            variant="flat"
-          >
-            Login
-          </Button>
-          </Link>
-  );
   const searchInput = (
     <Input
       aria-label="Search"

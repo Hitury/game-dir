@@ -185,9 +185,9 @@ export default function LoginPage() {
                 key={currentIndex}
                 className="bg-[#DB924B] w-110 h-130 rounded-sm flex items-start bg-cover self-center text-black p-3"
                 style={{ backgroundImage: `url(${images[currentIndex]})` }}
-                initial={{ opacity: 0, x: 50 }}
+                initial={{ opacity: 0, x: 0 }}
                 animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -50 }}
+                exit={{ opacity: 0, x: -0 }}
                 transition={{ duration: 0.8, ease: "easeInOut" }}
               />
             </AnimatePresence>
@@ -225,6 +225,17 @@ export default function LoginPage() {
               >
                 Login
               </Button>
+              <p className="text-sm text-gray-400 text-center transition">
+                  Forgot your password?{" "}
+                  <Link
+                    href="/signup"
+                    underline="hover"
+                    onClick={handleGoSignup}
+                    className="text-[#C59F60] text-sm"
+                  >
+                    Reset
+                  </Link>
+              </p>
               <div className="flex flex-col justify-center items-center">
                 <div className="flex flex-row gap-5 justify-center w-[40%] items-center mb-10">
                   <Divider className="w-32" />
