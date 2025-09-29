@@ -10,6 +10,8 @@ import LoginPage from "@/pages/login";
 import SupportPage from "@/pages/support";
 import PageWrapper from "./components/PageWrapper";
 import SignupPage from "@/pages/signup";
+import Callback from "@/pages/callback";
+import Checkmail from "@/pages/success";
 import testConnection from "@/auth/testconnection"
 import { AnimatePresence } from "framer-motion";
 import { useEffect } from "react";
@@ -29,6 +31,8 @@ function App() {
       <Route element={<AboutPage />} path="/about" />{" "}
       <Route element={<ContactPage />} path="/contact" />{" "}
       <Route element={<SupportPage />} path="/support" />{" "}
+      <Route element={<Callback />} path="/callback" />{" "}
+      <Route element={<Checkmail />} path="/success" />{" "}
       <Route
         path="/login"
           element={

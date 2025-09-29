@@ -1,18 +1,79 @@
+import React, { useState } from "react";
 import AuthLayout from "@/layouts/auth";
 import { Link } from "@heroui/link";
 import { Button } from "@heroui/button";
 import { Input } from "@heroui/input";
 import { Divider } from "@heroui/divider";
-import { useState } from "react";
 import { Form } from "@heroui/form";
+import supabase from "@/auth/baseClient";
+import { useNavigate } from "react-router-dom";
 
-export default function SignupPage() {
-  const [loading, setLoading] = useState(false);
-  const handleClick = () => {
-    setLoading(true);
-    setTimeout(() => setLoading(false), 2000);
+type FormData = {
+  username: string;
+  email: string;
+  password: string;
+};
+
+export default function SignupPage(): JSX.Element {
+  const router = useNavigate();
+  const [loading, setLoading] = useState<boolean>(false);
+  const [formData, setFormData] = useState<FormData>({
+    username: "",
+    email: "",
+    password: "",
+  });
+  const [error, setError] = useState<string | null>(null);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
   };
 
+  const handleSignup = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
+    e.preventDefault();
+    setLoading(true);
+    setError(null);
+
+    try {
+      // 1. Sign up the user with Supabase Auth
+      const { data: authData, error: authError } = await supabase.auth.signUp({
+        email: formData.email,
+        password: formData.password,
+        options: {
+          data: {
+            username: formData.username,
+          },
+        },
+      });
+
+      if (authError) throw authError;
+
+      // 2. Update the username in the profiles table
+      if (authData.user) {
+        const { error: profileError } = await supabase
+          .from("profiles")
+          .upsert({
+            id: authData.user.id,
+            username: formData.username,
+            created_at: new Date().toISOString(),
+          });
+
+        if (profileError) throw profileError;
+
+        // Redirect to dashboard or confirmation page
+        router("/success");
+      }
+    } catch (err: any) {
+      setError(err.message || "An error occurred during signup.");
+      console.error("Signup error:", err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // Social provider icons
   const discordIcon = (
     <svg
       fill="grey"
@@ -74,6 +135,22 @@ export default function SignupPage() {
     </svg>
   );
 
+  const handleSocialSignup = async (provider: 'discord' | 'github' | 'google'): Promise<void> => {
+    try {
+      const { error } = await supabase.auth.signInWithOAuth({
+        provider: provider,
+        options: {
+          redirectTo: `${window.location.origin}/auth/callback`,
+        },
+      });
+      
+      if (error) throw error;
+    } catch (err: any) {
+      setError(err.message || "Authentication failed");
+      console.error("Social login error:", err);
+    }
+  };
+
   return (
     <AuthLayout>
       <section className="flex items-center justify-center px-4">
@@ -88,24 +165,21 @@ export default function SignupPage() {
             <h3 className="text-center text-sm">Register with:</h3>
             <div className="flex flex-row gap-4 flex-1 justify-center">
               <Button
-                isExternal
-                as={Link}
+                onClick={() => handleSocialSignup('discord')}
                 className="text-sm font-normal text-default-600 bg-default-100 w-10 h-12"
                 variant="light"
               >
                 {discordIcon}
               </Button>
               <Button
-                isExternal
-                as={Link}
+                onClick={() => handleSocialSignup('github')}
                 className="text-sm font-normal text-default-600 bg-default-100 w-10 h-12"
                 variant="light"
               >
                 {githubIcon}
               </Button>
               <Button
-                isExternal
-                as={Link}
+                onClick={() => handleSocialSignup('google')}
                 className="text-sm text-default-600 bg-default-100 w-10 h-12"
                 variant="light"
               >
@@ -122,11 +196,20 @@ export default function SignupPage() {
           </div>
 
           {/* Form */}
-          <Form className="flex flex-col gap-4" validationBehavior="aria">
+          <Form className="flex flex-col gap-4" onSubmit={handleSignup} validationBehavior="aria">
+            {error && (
+              <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+                <span className="block sm:inline">{error}</span>
+              </div>
+            )}
+            
             <Input
               isRequired
+              name="username"
               placeholder="Username"
               label="Username"
+              value={formData.username}
+              onChange={handleChange}
               classNames={{
                 input: "placeholder:text-[#C59F60]",
               }}
@@ -135,9 +218,12 @@ export default function SignupPage() {
             />
             <Input
               isRequired
+              name="email"
               type="email"
               placeholder="you@email.com"
               label="Email"
+              value={formData.email}
+              onChange={handleChange}
               classNames={{
                 input: "placeholder:text-[#C59F60]",
               }}
@@ -148,9 +234,12 @@ export default function SignupPage() {
             />
             <Input
               isRequired
+              name="password"
               type="password"
               placeholder="Enter your password"
               label="Password"
+              value={formData.password}
+              onChange={handleChange}
               className="bg-transparent rounded-md"
               classNames={{
                 input: "placeholder:text-[#C59F60]",
@@ -160,9 +249,8 @@ export default function SignupPage() {
             />
 
             <Button
-              onPress={handleClick}
-              isLoading={loading}
               type="submit"
+              isLoading={loading}
               spinner={
                 <svg
                   className="animate-spin h-5 w-5 text-current"
