@@ -9,7 +9,7 @@ export default function DocsPage() {
     return (
         <DefaultLayout>
             <div className="w-[300px] m-auto text-center bg-[#000000] p-[15px] rounded-[15px] flex flex-col items-center">
-                <img src={profile?.avatar_url ? profile?.avatar_url : "/placeholder.jpg"} className="w-[75px] rounded-full border-2" />
+                <img src={profile?.avatar_url ? profile?.avatar_url : "/placeholder.jpg"} className="w-[75px] h-[75px] rounded-full border-2" />
                 <h1 className={subtitle()}>Welcome! *user*</h1>
                 <Button className="my-[10px]">Choose Photo..</Button>
                 <Input className="my-[5px]" placeholder="Change Username.." />
