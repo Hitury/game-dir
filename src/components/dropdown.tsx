@@ -6,13 +6,13 @@ export default function DropDownFunc() {
 
   return (
     <Accordion>
-      <AccordionItem key="1" aria-label="Accordion 1" title="Accordion 1">
+      <AccordionItem key="1" aria-label="Accordion 1" title="Anon 1">
         {defaultContent}
       </AccordionItem>
-      <AccordionItem key="2" aria-label="Accordion 2" title="Accordion 2">
+      <AccordionItem key="2" aria-label="Accordion 2" title="Anon 2">
         {defaultContent}
       </AccordionItem>
-      <AccordionItem key="3" aria-label="Accordion 3" title="Accordion 3">
+      <AccordionItem key="3" aria-label="Accordion 3" title="Anon 3">
         {defaultContent}
       </AccordionItem>
     </Accordion>
