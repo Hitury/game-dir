@@ -28,7 +28,7 @@ function App() {
       <Route element={<ExplorerPage />} path="/explorer" />{" "}
       <Route element={<ProfilePage />} path="/profiles" />{" "}
       <Route element={<GameInfo />} path="/game-info" />{" "}
-      <Route element={<ProfileUI />} path="/profile" />{" "}
+      <Route element={<ProfileUI />} path="/profile/:username" />{" "}
       <Route element={<AboutPage />} path="/about" />{" "}
       <Route element={<ContactPage />} path="/contact" />{" "}
       <Route element={<SupportPage />} path="/support" />{" "}

@@ -6,22 +6,93 @@ import { Button } from "@heroui/button";
 import { Tabs, Tab } from "@heroui/tabs";
 import { Skeleton } from "@heroui/skeleton";
 import { useEffect, useState } from "react";
-import { useDisclosure } from "@heroui/react"; // manages open/close
+import { useDisclosure } from "@heroui/react";
 import ConfirmBlockModal from "@/components/block-modal.tsx";
+import { useParams } from "react-router-dom";
+import supabase from "@/auth/baseClient";
+
+interface Profile {
+  id: string;
+  username: string;
+  avatar_url?: string;
+  // Add other fields as they exist in your profiles table
+}
 
 export default function ProfilePage() {
   const [loading, setLoading] = useState(true);
-  const { isOpen, onOpen, onClose } = useDisclosure(); // modal state
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const { username } = useParams<{ username: string }>();
+  const [profile, setProfile] = useState<Profile | null>(null);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!username) {
+      setError("No username provided");
+      setLoading(false);
+      return;
+    }
+
+    const fetchProfile = async () => {
+      try {
+        setLoading(true);
+        setError(null);
+        
+        console.log("Fetching profile for username:", username);
+        
+        const { data, error } = await supabase
+          .from("profiles") // Changed to match your table name
+          .select("*")
+          .eq("username", username)
+          .single();
+
+        console.log("Supabase response:", { data, error });
+
+        if (error) {
+          console.error("Supabase error:", error);
+          if (error.code === 'PGRST116') {
+            setError("User not found");
+          } else {
+            setError("Failed to load profile");
+          }
+          setProfile(null);
+        } else {
+          console.log("Profile found:", data);
+          setProfile(data);
+          setError(null);
+        }
+      } catch (err) {
+        console.error("Fetch error:", err);
+        setError("Failed to load profile");
+        setProfile(null);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProfile();
+  }, [username]);
 
   const handleConfirmBlock = () => {
     console.log("User blocked!");
   };
 
-  useEffect(() => {
-    // Simulate loading delay (e.g. fetching user profile data)
-    const timer = setTimeout(() => setLoading(false), 2000);
-    return () => clearTimeout(timer);
-  }, []);
+  // Error state
+  if (!loading && error) {
+    return (
+      <DefaultLayout>
+        <div className="flex flex-col items-center justify-center min-h-[60vh] text-center">
+          <h1 className={`${title()} text-red-400 mb-4`}>Error 404</h1>
+          <p className="text-gray-500 mb-6">{error}</p>
+          <p className="text-gray-400 text-sm mb-6">
+            Tried to find user: "{username}"
+          </p>
+          <Button color="primary" onPress={() => window.history.back()}>
+            Go Back
+          </Button>
+        </div>
+      </DefaultLayout>
+    );
+  }
 
   return (
     <DefaultLayout>
@@ -38,7 +109,7 @@ export default function ProfilePage() {
               <Skeleton className="rounded-full w-28 h-28" />
             ) : (
               <Avatar
-                src="/pfpIJvadeli.png"
+                src={profile?.avatar_url || "/pfpIJvadeli.png"}
                 alt="Profile Avatar"
                 className="rounded-full border-4 border-white shadow-lg w-28 h-28 flex-shrink-0"
               />
@@ -52,8 +123,12 @@ export default function ProfilePage() {
                 </>
               ) : (
                 <>
-                  <h1 className={`${title()} text-[#C59F60]`}>Placeholder</h1>
-                  <p className={`${subtitle()} text-gray-200`}>...</p>
+                  <h1 className={`${title()} text-[#C59F60]`}>
+                    {profile?.username || "Unknown User"}
+                  </h1>
+                  <p className={`${subtitle()} text-gray-200`}>
+                    @{profile?.username}
+                  </p>
                 </>
               )}
 
@@ -122,7 +197,7 @@ export default function ProfilePage() {
               base: "w-full",
               tabList:
                 "gap-6 w-full relative rounded-none p-0 border-b border-[#DB924B]/30 bg-black/0",
-              cursor: "w-full bg-[#DB924B]", // underline cursor
+              cursor: "w-full bg-[#DB924B]",
               tab: "max-w-fit h-12",
               tabContent:
                 "group-data-[selected=true]:text-[#DB924B] text-gray-400 font-medium transition-colors",

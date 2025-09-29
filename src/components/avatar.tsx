@@ -66,7 +66,7 @@ export default function Avatar() {
       </DropdownTrigger>
 
       <DropdownMenu aria-label="User Actions">
-        <DropdownItem key="profile" className="h-14 gap-2" onPress={() => navigate("/profile")}>
+        <DropdownItem key="profile" className="h-14 gap-2" onPress={() => navigate(`/profile/${profile?.username ?? "error"}`)}>
           <p className="font-semibold">Signed in as</p>
           <p className="font-semibold">
             {session?.user ? profile?.username || "Loading..." : "Guest"}
