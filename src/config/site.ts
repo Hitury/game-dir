@@ -1,24 +1,24 @@
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-  name: "Vite + HeroUI",
-  description: "Make beautiful websites regardless of your design experience.",
+  name: "CinderWatch",
+  description: "The ultimate game library.",
   navItems: [
     {
       label: "Home",
       href: "/",
     },
     {
-      label: "Docs",
-      href: "/docs",
+      label: "Explore",
+      href: "/explorer",
     },
     {
-      label: "Pricing",
-      href: "/pricing",
+      label: "Profiles",
+      href: "/profiles",
     },
     {
-      label: "Blog",
-      href: "/blog",
+      label: "Contact",
+      href: "/contact",
     },
     {
       label: "About",
@@ -31,28 +31,20 @@ export const siteConfig = {
       href: "/profile",
     },
     {
-      label: "Dashboard",
-      href: "/dashboard",
+      label: "Explore",
+      href: "/explorer",
     },
     {
-      label: "Projects",
-      href: "/projects",
+      label: "Profiles",
+      href: "/profiles",
     },
     {
-      label: "Team",
-      href: "/team",
+      label: "Contact",
+      href: "/contact",
     },
     {
-      label: "Calendar",
-      href: "/calendar",
-    },
-    {
-      label: "Settings",
-      href: "/settings",
-    },
-    {
-      label: "Help & Feedback",
-      href: "/help-feedback",
+      label: "About",
+      href: "/about",
     },
     {
       label: "Logout",
@@ -62,8 +54,9 @@ export const siteConfig = {
   links: {
     github: "https://github.com/frontio-ai/heroui",
     twitter: "https://twitter.com/hero_ui",
-    docs: "https://heroui.com",
-    discord: "https://discord.gg/9b6yyZKmH4",
-    sponsor: "https://patreon.com/jrgarciadev",
+    docs: "/explorer",
+    discord: "https://discord.gg/MgtMq8ZBTj",
+    sponsor: "/support",
+    login: "/login"
   },
 };
